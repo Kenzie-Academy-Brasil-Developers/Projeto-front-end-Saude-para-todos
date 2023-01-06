@@ -11,8 +11,6 @@ export default createGlobalStyle`
     }
     button {
         cursor: pointer;
-        border: none;
-        background: transparent;
     }
     a {
         color: unset;
@@ -25,18 +23,18 @@ export default createGlobalStyle`
         font-family: 'Inter', sans-serif;
     }
     :root{
-    --font-family-1: font-family: 'Inter', sans-serif;
-    --backgroud-opacity: #12121478;
-    --white: #FFFFFF;
-    --grey-0:  #F5F5F5;
-    --grey-20: #E0E0E0;
-    --grey-50:  #828282;
-    --grey-50-opacity:#b1b1b1;
-    --grey-100: #333333;
-    --pallete_error:#E60000;
-    --pallete_warning: #FFCD07;
-    --pallete_success:  #168821;
-    --pallete_information: #155BCB;
+    --primary-color: #0089FA;
+    --second-color: #0BB7DE;
+    --third-color: #B0E4FF;
+    --black-color: #000000;
+    --grey-one: #3C3C3C;
+    --grey-two: #515151;
+    --grey-three: #666666;
+    --grey-four: #F2F4F5;
+    --white-color: #FFFFFF;
+    --red-alert: #CC3333;
+    --yellow-warning: #EED202;
+    --green-successful: #4BB543;
     /* RADIUS - BORDER RADIUS */
     --radius-1: 0.3rem;
     --radius-2: 0.5rem;
