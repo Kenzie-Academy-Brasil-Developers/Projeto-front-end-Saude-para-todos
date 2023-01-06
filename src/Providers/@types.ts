@@ -1,4 +1,5 @@
 import React from "react";
+import { iRegisterFormValues } from "../pages/RegisterPage/interfaceRegister";
 export interface iDefaultProvidersProps {
   children: React.ReactNode;
 }
@@ -20,7 +21,7 @@ export interface iUserContext {
   setUserToken: React.Dispatch<React.SetStateAction<string | null>>;
   user: iUserData | null;
   setUser: React.Dispatch<React.SetStateAction<iUserData | null>>;
-  userRegister: () => void;
+  userRegister: (formData: iRegisterFormValues, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => void
   userLogin: () => void;
   userLogout: () => void;
   userEdit: () => void;
