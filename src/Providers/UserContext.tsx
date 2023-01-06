@@ -16,6 +16,7 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
   const [user, setUser] = useState<iUserData | null>(null);
   const navigate = useNavigate();
 
+
   const userRegister = async (formData: iRegisterFormValues) => {
     try {
       setLoading(true)
@@ -30,8 +31,15 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
     }
   }
 
-  const userLogin = () => {};
-  const userLogout = () => {};
+
+
+  const userLogout = () => {
+    localStorage.removeItem("@SaudeParaTodos");
+    setUserToken(null);
+    setUser(null);
+    navigate("/");
+  };
+  
   const userEdit = () => {};
   const autoLogin = () => {};
   return (
