@@ -1,4 +1,5 @@
 import React from "react";
+import { iRegisterFormValues } from "../pages/RegisterPage/interfaceRegister";
 export interface iDefaultProvidersProps {
   children: React.ReactNode;
 }
@@ -19,16 +20,22 @@ export interface iUserContext {
   userToken: string | null;
   setUserToken: React.Dispatch<React.SetStateAction<string | null>>;
   user: iUserData | null;
+
   setUser: React.Dispatch<React.SetStateAction<iUser | null | any>>;
-  userRegister: () => void;
   userLogin: (
     formData: IformData,
     setUser: React.Dispatch<React.SetStateAction<iUser | null>>
   ) => void;
+
+
+  userRegister: (formData: iRegisterFormValues, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => void
+
+
   userLogout: () => void;
   userEdit: () => void;
   autoLogin: () => void;
 }
+
 
 export interface IformData {
   email: string;
@@ -39,3 +46,17 @@ export interface Iresponse {
   accessToken: string;
   user: iUser;
 }
+
+export interface iUnitiesContext {
+  menuHeader:boolean;
+  setMenuHeader: React.Dispatch<React.SetStateAction<boolean>>;
+  allUnities:boolean;
+  setAllUnities: React.Dispatch<React.SetStateAction<boolean>>;
+  createUnity:() => void;
+  deleteUnity:() => void;
+  editUnity:() => void;
+  getUnities:() => void;
+
+
+}
+
