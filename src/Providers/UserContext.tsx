@@ -16,12 +16,14 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
 
   const userRegister = () => {};
   const userLogin = () => {};
+
   const userLogout = () => {
     localStorage.removeItem("@SaudeParaTodos");
     setUserToken(null);
     setUser(null);
     navigate("/");
   };
+  
   const userEdit = () => {};
   const autoLogin = () => {};
   return (

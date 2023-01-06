@@ -18,4 +18,8 @@ div{
 button{
     color:white;
 }
+
+#btnMenu{
+    border-bottom: 1px solid white;
+}
 `

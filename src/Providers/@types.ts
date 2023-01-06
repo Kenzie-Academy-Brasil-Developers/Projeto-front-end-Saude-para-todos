@@ -26,3 +26,16 @@ export interface iUserContext {
   userEdit: () => void;
   autoLogin: () => void;
 }
+
+export interface iUnitiesContext {
+  menuHeader:boolean;
+  setMenuHeader: React.Dispatch<React.SetStateAction<boolean>>;
+  allUnities:boolean;
+  setAllUnities: React.Dispatch<React.SetStateAction<boolean>>;
+  createUnity:() => void;
+  deleteUnity:() => void;
+  editUnity:() => void;
+  getUnities:() => void;
+
+
+}
