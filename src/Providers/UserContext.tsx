@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { iUserContext } from "./@types";
 import { iDefaultProvidersProps, iUserData } from "./@types";
 
@@ -11,9 +12,16 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
     localStorageToken ? localStorageToken : null
   );
   const [user, setUser] = useState<iUserData | null>(null);
+  const navigate = useNavigate();
+
   const userRegister = () => {};
   const userLogin = () => {};
-  const userLogout = () => {};
+  const userLogout = () => {
+    localStorage.removeItem("@SaudeParaTodos");
+    setUserToken(null);
+    setUser(null);
+    navigate("/");
+  };
   const userEdit = () => {};
   const autoLogin = () => {};
   return (
