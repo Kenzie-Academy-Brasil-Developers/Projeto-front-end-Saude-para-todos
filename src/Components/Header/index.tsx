@@ -3,6 +3,7 @@ import defaultUserImg from "../../images/defaultUserImg.svg";
 import { UnitiesContext } from "../../Providers/unitiesContext";
 import { UserContext } from "../../Providers/UserContext";
 import { StyledDiv } from "./header";
+import { StyledUl } from "./Menu/menu";
 
 export const Header = () => {
   const { userLogout, user } = useContext(UserContext);
@@ -30,12 +31,14 @@ export const Header = () => {
               <h4>Olá, {user?.user.name}</h4>
             </div>
             <div>
-              <button id="btnMenu">Menu</button>
+              <button id="btnMenu" onClick={() => setMenuHeader(false)}>
+                Menu
+              </button>
               <button onClick={() => userLogout()}>Sair</button>
             </div>
           </StyledDiv>
           <nav>
-            <ul>
+            <StyledUl>
               <li>Hospitais</li>
               <li>Policlínicas</li>
               <li>Postos de Saúde</li>
@@ -43,7 +46,7 @@ export const Header = () => {
               <li>Configurações</li>
               <li>Usuário</li>
               <li>Senha</li>
-            </ul>
+            </StyledUl>
           </nav>
         </>
       )}
