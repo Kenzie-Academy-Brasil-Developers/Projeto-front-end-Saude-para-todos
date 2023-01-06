@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from "./LoginSchema";
 import { UserContext } from "../../Providers/UserContext";
+import { Button } from "../../Components/Button";
 
 export const LoginPage = () => {
   interface IFormData {
@@ -54,7 +55,7 @@ export const LoginPage = () => {
           />
           {errors.email?.message && <p> {errors.email.message}</p>}
           <span>Esqueci minha senha</span>
-          <button>Entrar</button>
+          <Button text={"Entrar"} />
           <button>Cadastrar</button>
         </form>
       </LoginContainer>
