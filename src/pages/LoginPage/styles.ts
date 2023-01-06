@@ -22,6 +22,7 @@ export const LoginContainer = styled.div`
   span {
     margin-bottom: 50px;
     text-align: center;
+    color: var(--primary-color);
   }
 
   p {
@@ -33,4 +34,13 @@ export const LoginContainer = styled.div`
     font-weight: 400;
     text-align: start;
   }
+`;
+
+export const BtnRegister = styled.button`
+  width: 100%;
+  border: solid 2px var(--primary-color);
+  height: 50px;
+  border-radius: 50px;
+  color: var(--primary-color);
+  margin-top: 20px;
 `;
