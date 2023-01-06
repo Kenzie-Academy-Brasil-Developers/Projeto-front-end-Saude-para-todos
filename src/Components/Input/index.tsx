@@ -18,7 +18,6 @@ export const Input = ({
   placeholder,
   disabled,
   register,
-  error,
 }: iInputProps) => {
   return (
     <Styledfieldset>
