@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Input } from "../../Components/Input";
-import { LoginContainer } from "./styles";
+import { BtnRegister, LoginContainer } from "./styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from "./LoginSchema";
@@ -24,9 +24,10 @@ export const LoginPage = () => {
     mode: "onBlur",
   });
 
-  const { setUser } = useContext(UserContext);
+  const { setUser, userLogin } = useContext(UserContext);
 
   const submit = (data: IFormData) => {
+    userLogin(data, setUser);
     reset();
   };
 
@@ -56,7 +57,7 @@ export const LoginPage = () => {
           {errors.email?.message && <p> {errors.email.message}</p>}
           <span>Esqueci minha senha</span>
           <Button text={"Entrar"} />
-          <button>Cadastrar</button>
+          <BtnRegister>Cadastrar</BtnRegister>
         </form>
       </LoginContainer>
     </>
