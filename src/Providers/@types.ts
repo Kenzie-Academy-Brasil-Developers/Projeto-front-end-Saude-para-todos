@@ -28,18 +28,23 @@ export interface iUserContext {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   userToken: string | null;
   setUserToken: React.Dispatch<React.SetStateAction<string | null>>;
-  user: iUserData | null;
+  user: iUser | null;
+  setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
 
-  setUser: React.Dispatch<React.SetStateAction<iUser | null | any>>;
   userLogin: (
     formData: IformData,
     setUser: React.Dispatch<React.SetStateAction<iUser | null>>
   ) => void;
 
 
-  userRegister: (formData: iRegisterFormValues, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => void
+  userRegister: (
+    formData: iRegisterFormValues,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
+
 
   
+
   userLogout: () => void;
   userEdit: () => void;
   autoLogin: () => void;
@@ -56,17 +61,31 @@ export interface Iresponse {
   user: iUser;
 }
 
+export interface iUnity {
+  nome_fantasia: string;
+  codigo_cep_estabelecimento: number;
+  endereco_estabelecimento: string;
+  numero_estabelecimento: number;
+  bairro_estabelecimento: string;
+  numero_telefone_estabelecimento: number;
+}
+
 export interface iUnitiesContext {
-  menuHeader:boolean;
+  menuHeader: boolean;
   setMenuHeader: React.Dispatch<React.SetStateAction<boolean>>;
-  allUnities:boolean;
-  setAllUnities: React.Dispatch<React.SetStateAction<boolean>>;
+  allUnities: iUnity[] | null;
+  setAllUnities: React.Dispatch<React.SetStateAction<iUnity[] | null>>
+  singleUnity:iUnity | null
+  setSingleUnity: React.Dispatch<React.SetStateAction<iUnity | null>>
   createUnity:() => void;
   deleteUnity:() => void;
   editUnity:() => void;
-  getUnities:() => void;
-  listUpas: iListUpasData | [] |any;
-  setListUpas:React.Dispatch<React.SetStateAction<iListUpasData[]>>
+
+  getUnity:() => void;
+  getALlUnities:() => void;
+
+
+  
+
 
 }
-

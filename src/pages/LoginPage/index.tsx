@@ -1,19 +1,15 @@
-import React, { useContext } from "react";
-import { Input } from "../../Components/Input";
-import { BtnRegister, LoginContainer } from "./styles";
+import { useContext } from "react";
+import { LoginContainer } from "./styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { LoginSchema } from "./LoginSchema";
 import { UserContext } from "../../Providers/UserContext";
 import { Button } from "../../Components/Button";
+import InputMaterial from "../../Components/InputMaterial";
+import { Link } from "react-router-dom";
+import { IFormData } from "./interfaceLogin";
 
 export const LoginPage = () => {
-  interface IFormData {
-    name: string;
-    email: string;
-    password: string;
-  }
-
   const {
     register,
     handleSubmit,
@@ -37,27 +33,37 @@ export const LoginPage = () => {
         <h1>ST</h1>
         <h3>Saúde Para Todos</h3>
         <form onSubmit={handleSubmit(submit)}>
-          <Input
-            type="email"
-            id="E-mail"
-            label="E-mail"
-            disabled={false}
-            placeholder=""
+          <InputMaterial
+            type="text"
+            label="Email"
+            id="email"
+            error={errors.email}
+            placeholder="E-mail"
             register={register("email")}
-          />
-          {errors.email?.message && <p> {errors.email.message}</p>}
-          <Input
-            type="password"
-            id="Senha"
-            label="Senha"
             disabled={false}
-            placeholder=""
-            register={register("password")}
           />
-          {errors.email?.message && <p> {errors.email.message}</p>}
+          {errors.email && (
+            <p className="p-error" aria-label="Error: E-mail">
+              {errors.email.message}
+            </p>
+          )}
+          <InputMaterial
+            type="password"
+            label="Senha"
+            id={"password"}
+            error={errors.password}
+            placeholder="Senha"
+            register={register("password")}
+            disabled={false}
+          />
+          {errors.password && (
+            <p className="p-error" aria-label="Error: Password">
+              {errors.password.message}
+            </p>
+          )}
           <span>Esqueci minha senha</span>
           <Button text={"Entrar"} />
-          <BtnRegister>Cadastrar</BtnRegister>
+          <Link to={"/register"}>Cadastrar</Link>
         </form>
       </LoginContainer>
     </>
