@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Api } from "../services/Api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -7,6 +7,7 @@ import { createContext } from "react";
 import { IformData, Iresponse, iUser, iUserContext } from "./@types";
 import { iRegisterFormValues } from "../pages/RegisterPage/interfaceRegister";
 import { iDefaultProvidersProps, iUserData } from "./@types";
+import { idText } from "typescript";
 
 export const UserContext = createContext({} as iUserContext);
 export const UserProvider = ({ children }: iDefaultProvidersProps) => {
@@ -62,6 +63,33 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
       toast.error(error);
     }
   };
+
+  useEffect(() => {
+    const loadUser = async () => {
+      if (!localStorageToken) {
+        setLoading(false);
+        return;
+      }
+
+      const { id }: any = user;
+
+      try {
+        const { data } = await Api.get<Iresponse>(`users/${id}`, {
+          headers: {
+            authorization: `Bearer ${localStorageToken}`,
+          },
+        });
+
+        setUser(data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadUser();
+  }, [localStorageToken]);
+
   return (
     <UserContext.Provider
       value={{
