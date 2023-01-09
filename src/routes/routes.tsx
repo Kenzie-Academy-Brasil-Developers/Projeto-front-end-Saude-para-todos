@@ -18,7 +18,7 @@ export const RoutesMain = () => {
         path="/home"
         element={
           <UnitiesProvider>
-            <HomePage />
+            <HomePage/>
           </UnitiesProvider>
         }
       />

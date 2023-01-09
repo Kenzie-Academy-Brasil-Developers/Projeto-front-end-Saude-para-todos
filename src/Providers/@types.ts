@@ -14,6 +14,15 @@ export interface iUser {
   id: number;
   isAdmin?: boolean;
 }
+
+export interface iListUpasData{ 
+    nome_fantasia: string;
+    codigo_cep_estabelecimento: number;
+    endereco_estabelecimento: string;
+    numero_estabelecimento: number;
+    bairro_estabelecimento: string;
+    numero_telefone_estabelecimento: number;
+}
 export interface iUserContext {
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -30,7 +39,7 @@ export interface iUserContext {
 
   userRegister: (formData: iRegisterFormValues, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => void
 
-
+  
   userLogout: () => void;
   userEdit: () => void;
   autoLogin: () => void;
@@ -56,7 +65,8 @@ export interface iUnitiesContext {
   deleteUnity:() => void;
   editUnity:() => void;
   getUnities:() => void;
-
+  listUpas: iListUpasData | [] |any;
+  setListUpas:React.Dispatch<React.SetStateAction<iListUpasData[]>>
 
 }
 
