@@ -10,7 +10,6 @@ import { iDefaultProvidersProps, iUserData } from "./@types";
 
 export const UserContext = createContext({} as iUserContext);
 export const UserProvider = ({ children }: iDefaultProvidersProps) => {
-  const [id, setId] = useState<number | string | null>(null);
   const [loading, setLoading] = useState(false);
   const localStorageToken = localStorage.getItem("@SaudeParaTodos");
   const [userToken, setUserToken] = useState(
@@ -51,9 +50,9 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
     setUser: React.Dispatch<React.SetStateAction<iUser | null>>
   ) => {
     try {
-      const request = await Api.post<Iresponse>("login", formData);
+      const request = await Api.post("login", formData);
       setUser(request.data.user);
-      setId(request.data.user.id);
+      localStorage.setItem("@id", request.data.user.id);
       localStorage.setItem("@SaudeParaTodos", request.data.accessToken);
       toast.success("Login realizado com sucesso");
       console.log(request.data);
@@ -72,8 +71,10 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
         return;
       }
 
+      const userId = localStorage.getItem("@userId");
+
       try {
-        const { data } = await Api.get<Iresponse>(`users/${id}`, {
+        const { data } = await Api.get(`users/${userId}`, {
           headers: {
             authorization: `Bearer ${localStorageToken}`,
           },
@@ -87,7 +88,7 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
       }
     };
     loadUser();
-  }, [id]);
+  }, []);
 
   return (
     <UserContext.Provider
