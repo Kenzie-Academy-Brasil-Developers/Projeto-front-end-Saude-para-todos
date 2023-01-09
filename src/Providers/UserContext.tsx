@@ -52,7 +52,7 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
     try {
       const request = await Api.post("login", formData);
       setUser(request.data.user);
-      localStorage.setItem("@id", request.data.user.id);
+      localStorage.setItem("@userId", request.data.user.id);
       localStorage.setItem("@SaudeParaTodos", request.data.accessToken);
       toast.success("Login realizado com sucesso");
       console.log(request.data);
@@ -66,25 +66,19 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
 
   useEffect(() => {
     const loadUser = async () => {
-      if (!localStorageToken) {
-        setLoading(false);
-        return;
-      }
-
       const userId = localStorage.getItem("@userId");
 
       try {
-        const { data } = await Api.get(`users/${userId}`, {
+        const request = await Api.get(`users/${userId}`, {
           headers: {
-            authorization: `Bearer ${localStorageToken}`,
+            Authorization: `Bearer ${localStorageToken}`,
+            "Content-Type": "application/json",
           },
         });
-
-        setUser(data);
+        console.log(request);
+        setUser(request.data);
       } catch (error) {
         console.error(error);
-      } finally {
-        setLoading(false);
       }
     };
     loadUser();
