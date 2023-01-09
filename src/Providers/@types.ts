@@ -14,6 +14,15 @@ export interface iUser {
   id: number;
   isAdmin?: boolean;
 }
+
+export interface iListUpasData{ 
+    nome_fantasia: string;
+    codigo_cep_estabelecimento: number;
+    endereco_estabelecimento: string;
+    numero_estabelecimento: number;
+    bairro_estabelecimento: string;
+    numero_telefone_estabelecimento: number;
+}
 export interface iUserContext {
   loading: boolean;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
@@ -27,10 +36,14 @@ export interface iUserContext {
     setUser: React.Dispatch<React.SetStateAction<iUser | null>>
   ) => void;
 
+
   userRegister: (
     formData: iRegisterFormValues,
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => void;
+
+
+  
 
   userLogout: () => void;
   userEdit: () => void;
@@ -67,36 +80,12 @@ export interface iUnitiesContext {
   createUnity:() => void;
   deleteUnity:() => void;
   editUnity:() => void;
+
   getUnity:() => void;
   getALlUnities:() => void;
 
-}
 
-// {id: 1, nome_fantasia: 'PRONTO ATENDIMENTO MUNICIPAL DE SABAUDIA', codigo_cep_estabelecimento: '86720000', endereco_estabelecimento: 'AV CAMPOS SALES', numero_estabelecimento: '6', …}
-// bairro_estabelecimento
-// : 
-// "CENTRO"
-// codigo_cep_estabelecimento
-// : 
-// "86720000"
-// descricao_turno_atendimento
-// : 
-// "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)"
-// endereco_estabelecimento
-// : 
-// "AV CAMPOS SALES"
-// id
-// : 
-// 1
-// nome_fantasia
-// : 
-// "PRONTO ATENDIMENTO MUNICIPAL DE SABAUDIA"
-// numero_estabelecimento
-// : 
-// "6"
-// numero_telefone_estabelecimento
-// : 
-// "(44)32511145"
-// [[Prototype]]
-// : 
-// Object
+  
+
+
+}

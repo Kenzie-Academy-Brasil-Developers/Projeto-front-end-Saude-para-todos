@@ -1,3 +1,4 @@
+
 import { createContext, useContext, useEffect, useState } from "react";
 import { Api } from "../services/Api";
 import { iDefaultProvidersProps, iUnity } from "./@types";
@@ -5,8 +6,10 @@ import { iUnitiesContext } from "./@types";
 
 export const UnitiesContext = createContext({} as iUnitiesContext);
 export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
+
   const localStorageToken = localStorage.getItem("@SaudeParaTodos");
   const [allUnities, setAllUnities] = useState([] as iUnity[] | null);
+
   const [menuHeader, setMenuHeader] = useState(false);
   const [singleUnity, setSingleUnity] = useState({} as iUnity | null)
 
@@ -32,6 +35,18 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
 
   const getALlUnities = () => {};
 
+  const [listUpas, setListUpas] = useState<iListUpasData[]>([] as iListUpasData[] );
+  
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await Api.get("unity");
+        setListUpas(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    })();
+  }, []);
   return (
     <UnitiesContext.Provider
       value={{
@@ -45,7 +60,7 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
         setMenuHeader,
         getALlUnities,
         singleUnity,
-        setSingleUnity
+        setSingleUnity       
       }}
     >
       {children}
