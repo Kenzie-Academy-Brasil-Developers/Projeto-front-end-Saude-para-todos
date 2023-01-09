@@ -60,12 +60,43 @@ export interface iUnity {
 export interface iUnitiesContext {
   menuHeader: boolean;
   setMenuHeader: React.Dispatch<React.SetStateAction<boolean>>;
-  allUnities:boolean;
-  setAllUnities: React.Dispatch<React.SetStateAction<boolean>>;
+  allUnities: iUnity[] | null;
+  setAllUnities: React.Dispatch<React.SetStateAction<iUnity[] | null>>
+  singleUnity:iUnity | null
+  setSingleUnity: React.Dispatch<React.SetStateAction<iUnity | null>>
   createUnity:() => void;
   deleteUnity:() => void;
   editUnity:() => void;
-  getUnities:() => void;
-
+  getUnity:() => void;
+  getALlUnities:() => void;
 
 }
+
+// {id: 1, nome_fantasia: 'PRONTO ATENDIMENTO MUNICIPAL DE SABAUDIA', codigo_cep_estabelecimento: '86720000', endereco_estabelecimento: 'AV CAMPOS SALES', numero_estabelecimento: '6', …}
+// bairro_estabelecimento
+// : 
+// "CENTRO"
+// codigo_cep_estabelecimento
+// : 
+// "86720000"
+// descricao_turno_atendimento
+// : 
+// "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)"
+// endereco_estabelecimento
+// : 
+// "AV CAMPOS SALES"
+// id
+// : 
+// 1
+// nome_fantasia
+// : 
+// "PRONTO ATENDIMENTO MUNICIPAL DE SABAUDIA"
+// numero_estabelecimento
+// : 
+// "6"
+// numero_telefone_estabelecimento
+// : 
+// "(44)32511145"
+// [[Prototype]]
+// : 
+// Object

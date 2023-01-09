@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext} from "react";
 import defaultUserImg from "../../images/defaultUserImg.svg";
 import { UnitiesContext } from "../../Providers/unitiesContext";
 import { UserContext } from "../../Providers/UserContext";
@@ -6,7 +6,7 @@ import { StyledDiv } from "./header";
 import { StyledUl } from "./Menu/menu";
 
 export const Header = () => {
-  const { userLogout, user, loading } = useContext(UserContext);
+  const { userLogout, user} = useContext(UserContext);
 
   const { menuHeader, setMenuHeader } = useContext(UnitiesContext);
 

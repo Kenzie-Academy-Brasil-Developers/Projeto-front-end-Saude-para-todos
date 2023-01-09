@@ -1,28 +1,21 @@
-import React, { useContext } from 'react'
-import { UnitiesContext } from '../../Providers/unitiesContext'
+import React, { useContext, useEffect } from "react";
+import { UnitiesContext } from "../../Providers/unitiesContext";
 
 export const UnityPage = () => {
-
-  const {allUnities, setAllUnities} = useContext(UnitiesContext)
-  setAllUnities([
-  {nome_fantasia: "haah",
-  codigo_cep_estabelecimento: 787359656,
-  endereco_estabelecimento: "serg",
-  numero_estabelecimento: 564,
-  bairro_estabelecimento: "asfd",
-  numero_telefone_estabelecimento: 56464},
-  ])
+  //no click do cart da unidade de saude, abre esse componente
+  const { singleUnity} = useContext(UnitiesContext);
 
   return (
-    <div>
-        <img src="" alt="" />
-        <p>{allUnities.nome_fantasia}</p>
-        <p>{allUnities.codigo_cep_estabelecimento}</p>
-        <p>{allUnities.endereco_estabelecimento + allUnities.numero_estabelecimento}</p>
-        <p>{allUnities.bairro_estabelecimento}</p>
-        <p>{allUnities.numero_telefone_estabelecimento}</p>
-        <p>{allUnities}</p>
-        <p>link?</p>
-    </div>
-  )
-}
+    <ul>
+      <img src="" alt="" />
+      <li>{singleUnity?.nome_fantasia}</li>
+      <li>{singleUnity?.codigo_cep_estabelecimento}</li>
+      <li>{singleUnity?.endereco_estabelecimento}</li>
+      <li>{singleUnity?.numero_estabelecimento}</li>
+      <li>{singleUnity?.bairro_estabelecimento}</li>
+      <li>{singleUnity?.numero_telefone_estabelecimento}</li>
+      <li>{"nao tem img"}</li>
+      <li>link?</li>
+    </ul>
+  );
+};

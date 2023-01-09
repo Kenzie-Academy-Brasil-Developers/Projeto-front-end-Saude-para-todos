@@ -1,17 +1,38 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { Api } from "../services/Api";
 import { iDefaultProvidersProps, iUnity } from "./@types";
 import { iUnitiesContext } from "./@types";
 
 export const UnitiesContext = createContext({} as iUnitiesContext);
 export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
-  const [allUnities, setAllUnities] = useState([] as iUnity[] | null );
+  const localStorageToken = localStorage.getItem("@SaudeParaTodos");
+  const [allUnities, setAllUnities] = useState([] as iUnity[] | null);
   const [menuHeader, setMenuHeader] = useState(false);
-
+  const [singleUnity, setSingleUnity] = useState({} as iUnity | null)
 
   const createUnity = () => {};
   const deleteUnity = () => {};
   const editUnity = () => {};
-  const getUnities = () => {};
+
+  const getUnity = async () => {
+    try {
+      // unityId = response.data.id
+      const response = await Api.get(`unity/${1}`,{
+        headers: {
+          Authorization: `Bearer ${localStorageToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+      console.log(response)
+      setSingleUnity(response.data);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      // setLoading(false);
+    }
+  };
+
+  const getALlUnities = () => {};
 
   return (
     <UnitiesContext.Provider
@@ -21,9 +42,12 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
         createUnity,
         deleteUnity,
         editUnity,
-        getUnities,
+        getUnity,
         menuHeader,
         setMenuHeader,
+        getALlUnities,
+        singleUnity,
+        setSingleUnity
       }}
     >
       {children}

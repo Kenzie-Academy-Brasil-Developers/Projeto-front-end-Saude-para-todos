@@ -35,9 +35,10 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
   };
 
   const userLogout = () => {
-    localStorage.removeItem("@SaudeParaTodos");
+    localStorage.clear()
     setUserToken(null);
     setUser(null);
+
     navigate("/");
   };
 
