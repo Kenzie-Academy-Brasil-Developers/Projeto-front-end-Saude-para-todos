@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
-export const styledDiv = styled.div`
+export const StyledUlUnityCard = styled.ul`
+
+
 
 `

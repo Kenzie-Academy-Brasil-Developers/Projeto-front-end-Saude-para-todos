@@ -27,8 +27,6 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
       setSingleUnity(response.data);
     } catch (error) {
       console.error(error);
-    } finally {
-      // setLoading(false);
     }
   };
 
