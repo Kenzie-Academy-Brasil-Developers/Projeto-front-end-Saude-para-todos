@@ -19,9 +19,9 @@ export interface iUserContext {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   userToken: string | null;
   setUserToken: React.Dispatch<React.SetStateAction<string | null>>;
-  user: iUserData | null;
+  user: iUser | null;
+  setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
 
-  setUser: React.Dispatch<React.SetStateAction<iUser | null | any>>;
   userLogin: (
     formData: IformData,
     setUser: React.Dispatch<React.SetStateAction<iUser | null>>
@@ -36,6 +36,7 @@ export interface iUserContext {
   userEdit: () => void;
   autoLogin: () => void;
 }
+
 
 export interface IformData {
   email: string;
@@ -59,10 +60,12 @@ export interface iUnity {
 export interface iUnitiesContext {
   menuHeader: boolean;
   setMenuHeader: React.Dispatch<React.SetStateAction<boolean>>;
-  allUnities: iUnity[] | null ;
-  setAllUnities: React.Dispatch<React.SetStateAction<iUnity[] | null>>;
-  createUnity: () => void;
-  deleteUnity: () => void;
-  editUnity: () => void;
-  getUnities: () => void;
+  allUnities:boolean;
+  setAllUnities: React.Dispatch<React.SetStateAction<boolean>>;
+  createUnity:() => void;
+  deleteUnity:() => void;
+  editUnity:() => void;
+  getUnities:() => void;
+
+
 }
