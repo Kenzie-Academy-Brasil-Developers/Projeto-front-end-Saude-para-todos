@@ -5,8 +5,9 @@ import { iRegisterFormValues } from './interfaceRegister'
 import { yupResolver} from '@hookform/resolvers/yup'
 import { registerSchema } from './registerSchema' 
 import { UserContext } from '../../Providers/UserContext'
-import { StyledButton, StyledLink } from '../../styles/buttons-style' 
+import { StyledLink } from '../../styles/buttons-style' 
 import { StyledRegister } from './register-style'
+import { Button } from "../../Components/Button";
 
 
 export const RegisterPage = () => {
@@ -61,10 +62,12 @@ export const RegisterPage = () => {
 
             <InputMaterial type="text" error={errors.zipCode} id="zipCode" label="Confirme o seu CEP" placeholder="CEP" register={register("zipCode")} disabled={loading} />
             {errors.zipCode && <p className="p-error" aria-label="Error: Zip code Confirmation">{errors.zipCode.message}</p>}
-
-            <StyledButton className="green-button-default" type="submit" disabled={loading}>
-              {loading ? 'Entrando...' : 'Cadastrar'}
-            </StyledButton>
+            
+            {/* <Button className="green-button-default" type="submit" disabled={loading}>
+              {loading ? 'Entrando...' : 'Registrar'}
+            </Button> */}
+            
+            <Button disabled={loading} text={loading ? 'Registrando...' : 'Registrar'}/>
         
           </form>
 
