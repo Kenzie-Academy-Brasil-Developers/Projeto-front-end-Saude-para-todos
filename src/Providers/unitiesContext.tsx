@@ -26,7 +26,7 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
 
   const deleteUnity = async (id: number | string) => {
     try {
-      await Api.post(`unity/${id}`, {
+      await Api.delete(`unity/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorageToken}`,
           "Content-Type": "application/json",
