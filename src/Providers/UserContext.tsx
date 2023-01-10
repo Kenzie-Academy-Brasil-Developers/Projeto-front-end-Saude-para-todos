@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Api } from "../services/Api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,11 +11,15 @@ import { iDefaultProvidersProps, iUserData } from "./@types";
 export const UserContext = createContext({} as iUserContext);
 export const UserProvider = ({ children }: iDefaultProvidersProps) => {
   const [loading, setLoading] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [editModal, setEditModal]= useState(false);
+  const [modalPassword, setModalPassword]= useState(false);
   const localStorageToken = localStorage.getItem("@SaudeParaTodos");
   const [userToken, setUserToken] = useState(
     localStorageToken ? localStorageToken : null
   );
   const [user, setUser] = useState<iUserData | null>(null);
+
 
   const navigate = useNavigate();
 
@@ -41,8 +45,27 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
     setUser(null);
     navigate("/");
   };
+ 
+ const userEdit = async  (formData: iRegisterFormValues, id:number) => {
+   /*  try {
+      const response = await Api.patch(`users/${id}`, formData,{
+        headers:{
+          Authorization: `Bearer ${localStorageToken}`
+        }
+      });
+      toast.success("Editado com sucesso")
+      setUser(response.data)
+      const editUser = user.map(status =>{
+        if(status.id === id){
+          return{...status, }
+        }
+      })
+      console.log(response.data)
+    } catch (error) {
+      
+    } */
+  }; 
 
-  const userEdit = () => {};
   const autoLogin = () => {};
 
   const userLogin = async (
@@ -50,8 +73,9 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
     setUser: React.Dispatch<React.SetStateAction<iUser | null>>
   ) => {
     try {
-      const request = await Api.post<Iresponse>("login", formData);
+      const request = await Api.post("login", formData);
       setUser(request.data.user);
+      localStorage.setItem("@userId", request.data.user.id);
       localStorage.setItem("@SaudeParaTodos", request.data.accessToken);
       toast.success("Login realizado com sucesso");
       console.log(request.data);
@@ -62,6 +86,26 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
       toast.error(error);
     }
   };
+  
+  useEffect(() => {
+    const loadUser = async () => {
+      const userId = localStorage.getItem("@userId");
+      try {
+        const request = await Api.get(`users/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${localStorageToken}`,
+            "Content-Type": "application/json",
+          },
+        });
+        setUser(request.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    loadUser();
+  }, []);
+
+
   return (
     <UserContext.Provider
       value={{
@@ -75,6 +119,12 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
         userLogin,
         userLogout,
         userEdit,
+        openModal,
+        setOpenModal,
+        modalPassword, 
+        setModalPassword,
+        editModal, 
+        setEditModal,
         autoLogin,
       }}
     >
@@ -82,3 +132,11 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
     </UserContext.Provider>
   );
 };
+/* const editTechList = tech.map(t => {
+        if(t.id === id){
+          return {...t, status: formData}
+        } else {
+          return t
+        }
+      }); 
+      setTech(editTechList) */

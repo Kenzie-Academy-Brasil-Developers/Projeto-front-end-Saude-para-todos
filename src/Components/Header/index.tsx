@@ -6,7 +6,8 @@ import { StyledDiv } from "./header";
 import { StyledUl } from "./Menu/menu";
 
 export const Header = () => {
-  const { userLogout, user } = useContext(UserContext);
+  const { userLogout, user, openModal,
+    setOpenModal, modalPassword, setModalPassword} = useContext(UserContext);
 
   const { menuHeader, setMenuHeader } = useContext(UnitiesContext);
 
@@ -16,7 +17,7 @@ export const Header = () => {
         <StyledDiv>
           <div>
             <img src={defaultUserImg} alt="" />
-            <h4>Olá, {user?.user.name}</h4>
+            <h4>Olá, Fabio</h4>
           </div>
           <div>
             <button onClick={() => setMenuHeader(true)}>Menu</button>
@@ -28,7 +29,7 @@ export const Header = () => {
           <StyledDiv>
             <div>
               <img src={defaultUserImg} alt="" />
-              <h4>Olá, {user?.user.name}</h4>
+              <h4>Olá,</h4>
             </div>
             <div>
               <button id="btnMenu" onClick={() => setMenuHeader(false)}>
@@ -44,8 +45,8 @@ export const Header = () => {
               <li>Postos de Saúde</li>
               <li>Upas</li>
               <li>Configurações</li>
-              <li>Usuário</li>
-              <li>Senha</li>
+              <li><button onClick={()=> setOpenModal(true)}>Usuário</button></li>
+              <li onClick={()=> setModalPassword(true)}>Senha</li>
             </StyledUl>
           </nav>
         </>
