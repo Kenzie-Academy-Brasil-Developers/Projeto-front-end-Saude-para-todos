@@ -65,7 +65,11 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
 
   useEffect(() => {
     const loadUser = async () => {
-      setLoading(true)
+      if (!localStorageToken) {
+        setLoading(false);
+        return;
+      }
+
       const userId = localStorage.getItem("@userId");
 
       try {
@@ -79,9 +83,8 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
         setUser(request.data);
       } catch (error) {
         console.error(error);
-      }
-      finally{
-        setLoading(false)
+      } finally {
+        setLoading(false);
       }
     };
     loadUser();
