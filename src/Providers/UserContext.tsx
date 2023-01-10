@@ -104,6 +104,7 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
         userLogout,
         userEdit,
         autoLogin,
+        localStorageToken,
       }}
     >
       {children}
