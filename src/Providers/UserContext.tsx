@@ -65,7 +65,11 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
 
   useEffect(() => {
     const loadUser = async () => {
-      setLoading(true);
+      if (!localStorageToken) {
+        setLoading(false);
+        return;
+      }
+
       const userId = localStorage.getItem("@userId");
 
       try {
