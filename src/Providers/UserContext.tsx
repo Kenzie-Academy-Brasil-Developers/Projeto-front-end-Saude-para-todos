@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Api } from "../services/Api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { createContext } from "react";
-import { IformData, Iresponse, iUser, iUserContext } from "./@types";
+import { IformData, iUser, iUserContext } from "./@types";
 import { iRegisterFormValues } from "../pages/RegisterPage/interfaceRegister";
 import { iDefaultProvidersProps, iUserData } from "./@types";
 
@@ -18,9 +18,7 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
   const [userToken, setUserToken] = useState(
     localStorageToken ? localStorageToken : null
   );
-  const [user, setUser] = useState<iUserData | null>(null);
-
-
+  const [user, setUser] = useState<iUser | null>(null);
   const navigate = useNavigate();
 
   const userRegister = async (formData: iRegisterFormValues) => {
@@ -86,26 +84,6 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
       toast.error(error);
     }
   };
-  
-  useEffect(() => {
-    const loadUser = async () => {
-      const userId = localStorage.getItem("@userId");
-      try {
-        const request = await Api.get(`users/${userId}`, {
-          headers: {
-            Authorization: `Bearer ${localStorageToken}`,
-            "Content-Type": "application/json",
-          },
-        });
-        setUser(request.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    loadUser();
-  }, []);
-
-
   return (
     <UserContext.Provider
       value={{

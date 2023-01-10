@@ -25,23 +25,23 @@ export interface iUserContext {
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   userToken: string | null;
   setUserToken: React.Dispatch<React.SetStateAction<string | null>>;
-  user: iUserData | null;
+  user: iUser | null;
+  setUser: React.Dispatch<React.SetStateAction<iUser | null>>;
 
-  setUser: React.Dispatch<React.SetStateAction<iUser | null | any>>;
   userLogin: (
     formData: IformData,
     setUser: React.Dispatch<React.SetStateAction<iUser | null>>
   ) => void;
 
-
-  userRegister: (formData: iRegisterFormValues, setLoading: React.Dispatch<React.SetStateAction<boolean>>) => void
-
+  userRegister: (
+    formData: iRegisterFormValues,
+    setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  ) => void;
 
   userLogout: () => void;
   userEdit: (formData: iRegisterFormValues, id: number | any) => void;
   autoLogin: () => void;
 }
-
 
 export interface IformData {
   email: string;
@@ -54,15 +54,12 @@ export interface IformData {
 } 
 
 export interface iUnitiesContext {
-  menuHeader:boolean;
+  menuHeader: boolean;
   setMenuHeader: React.Dispatch<React.SetStateAction<boolean>>;
-  allUnities:boolean;
+  allUnities: boolean;
   setAllUnities: React.Dispatch<React.SetStateAction<boolean>>;
-  createUnity:() => void;
-  deleteUnity:() => void;
-  editUnity:() => void;
-  getUnities:() => void;
-
-
+  createUnity: () => void;
+  deleteUnity: () => void;
+  editUnity: () => void;
+  getUnities: () => void;
 }
-

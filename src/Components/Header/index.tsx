@@ -17,7 +17,7 @@ export const Header = () => {
         <StyledDiv>
           <div>
             <img src={defaultUserImg} alt="" />
-            <h4>Olá, Fabio</h4>
+            <h4>Olá, {user?.name}</h4>
           </div>
           <div>
             <button onClick={() => setMenuHeader(true)}>Menu</button>
@@ -29,7 +29,7 @@ export const Header = () => {
           <StyledDiv>
             <div>
               <img src={defaultUserImg} alt="" />
-              <h4>Olá,</h4>
+              <h4>Olá, {user?.name}</h4>
             </div>
             <div>
               <button id="btnMenu" onClick={() => setMenuHeader(false)}>
