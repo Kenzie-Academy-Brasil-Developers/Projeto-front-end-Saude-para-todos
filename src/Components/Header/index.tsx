@@ -6,7 +6,7 @@ import { StyledDiv } from "./header";
 import { StyledUl } from "./Menu/menu";
 
 export const Header = () => {
-  const { userLogout, user } = useContext(UserContext);
+  const { userLogout, user, loading } = useContext(UserContext);
 
   const { menuHeader, setMenuHeader } = useContext(UnitiesContext);
 
@@ -16,7 +16,7 @@ export const Header = () => {
         <StyledDiv>
           <div>
             <img src={defaultUserImg} alt="" />
-            <h4>Olá, {user?.user.name}</h4>
+            <h4>Olá, {user?.name}</h4>
           </div>
           <div>
             <button onClick={() => setMenuHeader(true)}>Menu</button>
@@ -28,7 +28,7 @@ export const Header = () => {
           <StyledDiv>
             <div>
               <img src={defaultUserImg} alt="" />
-              <h4>Olá, {user?.user.name}</h4>
+              <h4>Olá, {user?.name}</h4>
             </div>
             <div>
               <button id="btnMenu" onClick={() => setMenuHeader(false)}>
