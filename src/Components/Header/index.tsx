@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import defaultUserImg from "../../images/defaultUserImg.svg";
 import { UnitiesContext } from "../../Providers/unitiesContext";
 import { UserContext } from "../../Providers/UserContext";

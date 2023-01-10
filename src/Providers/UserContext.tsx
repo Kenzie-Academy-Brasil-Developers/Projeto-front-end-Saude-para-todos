@@ -75,7 +75,7 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
             "Content-Type": "application/json",
           },
         });
-        console.log(request);
+
         setUser(request.data);
       } catch (error) {
         console.error(error);

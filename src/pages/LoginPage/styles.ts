@@ -27,8 +27,6 @@ export const LoginContainer = styled.div`
 
   p {
     color: var(--Negative);
-    position: relative;
-    bottom: 10px;
     font-family: var(--Inter);
     font-size: 14px;
     font-weight: 400;
