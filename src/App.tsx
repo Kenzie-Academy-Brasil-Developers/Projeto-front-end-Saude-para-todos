@@ -8,7 +8,9 @@ export const App = () => {
   return (
     <>
       <UserProvider>
-        <Routes />
+        <UnitiesProvider>
+          <Routes />
+        </UnitiesProvider>
       </UserProvider>
 
       <ToastContainer

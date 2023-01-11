@@ -1,22 +1,23 @@
-import React, { useContext } from 'react'
+import React, { useContext } from "react";
 import { iRegisterFormValues } from "../../pages/RegisterPage/interfaceRegister";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { UserContext } from "../../Providers/UserContext";
-import { FormModalUser, PageUserBackground, PageUserContainer, StyledDivPerfil } from "./style";
-import { yupResolver } from '@hookform/resolvers/yup';
-import { PageUserSchema } from './PageUserSchema';
+import {
+  FormModalUser,
+  PageUserBackground,
+  PageUserContainer,
+  StyledDivPerfil,
+} from "./style";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { PageUserSchema } from "./PageUserSchema";
 import defaultUserImg from "../../images/defaultUserImg.svg";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { Header } from "../../Components/Header";
+import { Footer } from "../../Components/Footer";
 
 export const PageUser = () => {
-
-  const {
-    user,
-    setOpenModal,
-    editModal,
-    setEditModal,
-    userEdit,
-  } = useContext(UserContext);
+  const { user, setOpenModal, editModal, setEditModal, userEdit } =
+    useContext(UserContext);
 
   const {
     register,
@@ -24,7 +25,7 @@ export const PageUser = () => {
     formState: { errors },
   } = useForm<iRegisterFormValues>({
     mode: "onChange",
-    resolver: yupResolver(PageUserSchema)
+    resolver: yupResolver(PageUserSchema),
   });
   
   const submit:SubmitHandler<iRegisterFormValues>=(formData) => {
@@ -76,5 +77,4 @@ export const PageUser = () => {
   </PageUserBackground>
   )
 }
-
 

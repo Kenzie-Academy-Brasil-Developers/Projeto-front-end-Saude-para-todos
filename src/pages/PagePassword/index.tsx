@@ -1,14 +1,22 @@
-import React, { useContext } from 'react'
-import { FormPagePassword, PagePasswordContainer, PagPasswordBackground, StyledDivPerfill } from './style';
+import React, { useContext } from "react";
+import {
+  FormPagePassword,
+  PagePasswordContainer,
+  PagPasswordBackground,
+  StyledDivPerfill,
+} from "./style";
 import { SubmitHandler, useForm } from "react-hook-form";
 import defaultUserImg from "../../images/defaultUserImg.svg";
-import { UserContext } from '../../Providers/UserContext';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { PagePasswordSchema } from './PasswordSchema';
-import { iRegisterFormValues } from '../RegisterPage/interfaceRegister';
-import { Link } from 'react-router-dom';
+import { UserContext } from "../../Providers/UserContext";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { PagePasswordSchema } from "./PasswordSchema";
+import { iRegisterFormValues } from "../RegisterPage/interfaceRegister";
+import { Link } from "react-router-dom";
+import { Header } from "../../Components/Header";
+import { Footer } from "../../Components/Footer";
 
 export const PagePassword = () => {
+
     const {
       user,
       setOpenModal,
@@ -71,4 +79,3 @@ export const PagePassword = () => {
         </PagePasswordContainer>
       </PagPasswordBackground>
     );
-  };

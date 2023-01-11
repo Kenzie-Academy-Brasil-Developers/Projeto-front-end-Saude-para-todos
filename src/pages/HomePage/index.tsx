@@ -17,8 +17,8 @@ export const HomePage = () => {
     <div>
       <Header />
       <main>
-        {openModal && <ModalUser/>}
-        {modalPassword && <ModalPassword/>}
+        {/* {openModal && <ModalUser/>}
+        {modalPassword && <ModalPassword/>} */}
       <h1>body</h1>
       
       </main>
