@@ -12,10 +12,10 @@ export const PageUserBackground = styled.section`
 `
 
 export const PageUserContainer = styled.div`
-    width: 350px;
-    height: 80%;
+    /* width: 350px; */
+    height: 100vh;
     border-radius: 8px;
-    background-color: var(--grey-four);
+    /* background-color: var(--grey-four); */
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@ export const PageUserContainer = styled.div`
 `
 
 export const FormModalUser = styled.form`
-    width: 90%;
+    /* width: 90%; */
     display: flex;
     flex-direction: column;
     gap: 18px;
