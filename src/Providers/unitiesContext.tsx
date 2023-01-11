@@ -8,26 +8,33 @@ import { UserContext } from "./UserContext";
 export const UnitiesContext = createContext({} as iUnitiesContext);
 export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
   const localStorageToken = localStorage.getItem("@SaudeParaTodos");
-  const [allUnities, setAllUnities] = useState([] as iUnity[] | null | any);
+  const [allUnities, setAllUnities] = useState([] as iUnity[]);
   const [menuHeader, setMenuHeader] = useState(false);
   const [singleUnity, setSingleUnity] = useState({} as iUnity | null);
   const [modalInfoUnities, setModalInfoUnities] = useState(false);
   const [idUnities, setIdUnities] = useState<iIdUnities | null>(null);
   const [unitie, setUnitie] = useState<iUnity | null>(null);
-  const { userZipCodeCity, setUserZipCodeCity } = useContext(UserContext);
+  const { userZipCodeCity} = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [search, setSearch]: string | any = useState("");
-  const [searchedUnities, setSearchedUnities] = useState<iUnity[] | [] | any>([]);
+  const [searchedUnities, setSearchedUnities] = useState<iUnity[] >([]);
+  const newAllUnities = allUnities.filter((unity) => {
+    const unityCep = String( unity.codigo_cep_estabelecimento).substring(0,2)
+    return(
+    search === "" ?  unityCep === userZipCodeCity.substring(0,2) : unityCep === search.substring(0,2)
+    ) 
+  })
   const createUnity = () => {};
   const deleteUnity = () => {};
   const editUnity = () => {};
+  
   
   useEffect(() => {
     (async () => {
       try {
         setLoading(true);
         const response = await Api.get("unity");
-        console.log(userZipCodeCity);
+
         setAllUnities(response.data);
       } catch (error) {
         console.log(error);
@@ -52,23 +59,7 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
     }
   };
 
-  const searchUnities = (event: any) => {
-    event.preventDefault();
-    console.log(search);
-    const searching = allUnities.filter((unities: iUnity[] | null | any) => {
-      return (
-        unities.nome_fantasia.toLowerCase().includes(search.toLowerCase()) ||
-        unities.codigo_cep_estabelecimento
-          .toLowerCase()
-          .includes(search.toLowerCase())
-      );
-    });
-    setSearch("");
-    if (searching.length > 0) {
-      setSearchedUnities(searching);
-    }
 
-  };
 
   const getALlUnities = () => {};
 
@@ -98,7 +89,8 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
         setSearch,
         searchedUnities,
         setSearchedUnities,
-        searchUnities,
+
+        newAllUnities
       }}
     >
       {children}

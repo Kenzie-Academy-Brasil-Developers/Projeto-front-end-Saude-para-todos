@@ -1,13 +1,18 @@
-import { useContext } from "react"
+import { SyntheticEvent, useContext, useState } from "react"
 import { UnitiesContext } from "../../Providers/unitiesContext"
 import { StyledSearchHome } from "./style"
 
 export const FormSearch = () =>{
-    const {search, setSearch, searchUnities} = useContext(UnitiesContext)
+    const { setSearch} = useContext(UnitiesContext)
+    const [searchInput, setSearchInput] = useState("")
+    const submitSearch = (event: SyntheticEvent) =>{
+        event.preventDefault()
+        setSearch(searchInput)
+    }
     return(
         <StyledSearchHome>
-            <form onSubmit={searchUnities}>
-                <input type="number" placeholder="Digite um Cep para pesquisa" value={search} onChange={(e) => setSearch(e.target.value)}/>
+            <form onSubmit={submitSearch}>
+                <input type="number" placeholder="Digite um Cep para pesquisa" value={searchInput} onChange={(e) => setSearchInput(e.target.value)}/>
                 <button>Pesquisar</button>
             </form>
         </StyledSearchHome>
