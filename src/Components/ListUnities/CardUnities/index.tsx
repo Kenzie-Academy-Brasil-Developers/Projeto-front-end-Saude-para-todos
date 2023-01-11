@@ -23,9 +23,9 @@ export interface iCardUpas {
     <StyledCardListUnities onClick={onClick}>
       <h2>{nome_fantasia}</h2>
       <span>Telefone: {numero_telefone_estabelecimento}</span>
-      <p>Rua: {endereco_estabelecimento}</p>
+      {/* <p>Rua: {endereco_estabelecimento}</p>
       <p>N°: {numero_estabelecimento}</p>
-      <p>Bairro: {bairro_estabelecimento}</p>
+      <p>Bairro: {bairro_estabelecimento}</p> */}
       <span>Cep: {codigo_cep_estabelecimento}</span>
     </StyledCardListUnities>
     );

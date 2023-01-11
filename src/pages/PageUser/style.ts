@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
 
 export const PageUserBackground = styled.section`
     width: 100%;
@@ -12,15 +13,14 @@ export const PageUserBackground = styled.section`
 `
 
 export const PageUserContainer = styled.div`
-    /* width: 350px; */
+    min-width: 100%;
     height: 100vh;
     border-radius: 8px;
-    /* background-color: var(--grey-four); */
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    
 
     & > .textArea{
         background: var(--Grey-5);
@@ -45,11 +45,16 @@ export const PageUserContainer = styled.div`
     
 
 `
+export const ContainerForm = styled.div`
+    width: 325px;
+    
+`
 
 export const FormModalUser = styled.form`
-    /* width: 90%; */
+    
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 18px;
     background: var(--Grey-3);
     color: var(--Color-white);
@@ -71,8 +76,8 @@ export const FormModalUser = styled.form`
     input[type='text'],
     input[type='email'],
     input[type="password"]{
-        background: var(--grey-four);
-        color: var(--black-color);
+        background: var(--white-color);
+        color: var(--primary-color);
         box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.25);
         border-radius: 25px;
         padding: 0 20px;
@@ -80,25 +85,87 @@ export const FormModalUser = styled.form`
         height: 38.38px;
     }
     input:focus{
-        outline-color: var(--Grey-3);
+        outline-color: var(--primary-color);
     }
     input:disabled{
         cursor: not-allowed;
         opacity: .5s;
     }
-    select{
-        background: var(--Grey-2);
-        color: var(--Grey-1);
-        border-radius: 4px;
-        padding: 0 20px;
-        width: 100%;
-        height: 38.38px;
-    }
+    
 `
+
 
 export const StyledDivPerfil = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
+
+    img{
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+    }
+
+    button{
+        color: var(--primary-color);
+        background-color: transparent;
+        font-weight: 500;
+        font-size: 1rem;
+    }
+    p{
+        font-weight: 400;
+        font-size: 1rem;
+    }
+`
+export const DivButton = styled.div`
+    display: flex;
+    width: 100%;
+    gap: 25px;
+    justify-content: center;
+`
+export const ButtonCss = css`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    border-radius: 20px;
+    width: 150px;
+    height: 47px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 400;
+    font-size: 1rem;
+    transition: .3s ease-in-out ;
+    &:hover{
+        background-color: var(--second-color);
+    }
+    
+    
+`
+export const StyledButton = styled.button`
+    ${ButtonCss}
+`
+
+export const LinkCss = css`
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    border-radius: 20px;
+    width: 150px;
+    height: 47px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    font-weight: 400;
+    font-size: 1rem;
+    transition: .3s ease-in-out ;
+    &:hover{
+        background-color: var(--second-color);
+    }
+`
+export const LinkUser = styled(Link)`
+    ${LinkCss}
 `

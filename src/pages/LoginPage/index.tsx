@@ -31,7 +31,8 @@ export const LoginPage = () => {
   return (
     <>
       <LoginContainer>
-        <img src={logoSaude} alt="" />
+        <h1>ST</h1>
+        <h3>Saúde Para Todos</h3>
         <form onSubmit={handleSubmit(submit)}>
           <InputMaterial
             type="text"
