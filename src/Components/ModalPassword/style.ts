@@ -12,11 +12,11 @@ export const ModalBackground = styled.section`
 `
 
 export const ModalContainer = styled.div`
-    width: 350px;
-    height: 80%;
+    min-width: 350px;
+    height: 100%;
     border-radius: 8px;
     background-color: var(--grey-four);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
     display: flex;
     flex-direction: column;
     align-items: center;

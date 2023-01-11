@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext} from "react";
 import defaultUserImg from "../../images/defaultUserImg.svg";
 import { UnitiesContext } from "../../Providers/unitiesContext";
 import { UserContext } from "../../Providers/UserContext";
@@ -11,10 +10,6 @@ export const Header = () => {
   const {
     userLogout,
     user,
-    openModal,
-    setOpenModal,
-    modalPassword,
-    setModalPassword,
   } = useContext(UserContext);
 
   const { menuHeader, setMenuHeader } = useContext(UnitiesContext);
@@ -24,7 +19,7 @@ export const Header = () => {
       {!menuHeader ? (
         <StyledDiv>
           <div>
-            <img src={user? user.image : defaultUserImg} alt="" />
+            <img src={user?.image ?  user?.image : defaultUserImg} alt="" />
             <h4>Olá, {user?.name}</h4>
           </div>
           <div>
@@ -36,7 +31,7 @@ export const Header = () => {
         <>
           <StyledDiv>
             <div>
-              <img src={defaultUserImg} alt="" />
+              <img src={user? user.image : defaultUserImg} alt="" />
               <h4>Olá, {user?.name}</h4>
             </div>
             <div>

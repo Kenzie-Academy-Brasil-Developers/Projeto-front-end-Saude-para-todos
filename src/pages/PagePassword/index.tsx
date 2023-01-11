@@ -14,6 +14,7 @@ import { iRegisterFormValues } from "../RegisterPage/interfaceRegister";
 import { Link } from "react-router-dom";
 import { Header } from "../../Components/Header";
 import { Footer } from "../../Components/Footer";
+import { DivButton, LinkUser, StyledButton } from "../PageUser/style";
 
 export const PagePassword = () => {
   const {
@@ -39,21 +40,16 @@ export const PagePassword = () => {
   };
   console.log(errors);
   return (
-    <PagPasswordBackground>
+    <>
+    <Header/>
+    
       <PagePasswordContainer>
         <div className="textArea">
-          <Link to={"/home"}> Voltar </Link>
+          
         </div>
         <StyledDivPerfill>
-          {editModal ? (
-            "O que você deseja atualizar"
-          ) : (
-            <img src={defaultUserImg} alt="" />
-          )}
-
-          <button onClick={() => setEditModal(!editModal)}>
-            {editModal ? "Cancelar" : "Editar Usuário"}
-          </button>
+        <img src={user? user.image : defaultUserImg} alt="" />
+        
         </StyledDivPerfill>
         <div>
           <FormPagePassword onSubmit={handleSubmit(submit)}>
@@ -62,18 +58,24 @@ export const PagePassword = () => {
               type="password"
               placeholder="Nova Senha."
               {...register("password")}
-              disabled={!editModal}
+              
             />
             <input
               type="password"
               placeholder="Confirmar Senha."
               {...register("passwordConfirm")}
-              disabled={!editModal}
+              
             />
-            {editModal && <button type="submit">Enviar</button>}
+            <DivButton>
+              <LinkUser to={"/home"}> Cancelar </LinkUser>
+             <StyledButton type="submit">Enviar</StyledButton>
+             
+             </DivButton>
           </FormPagePassword>
         </div>
       </PagePasswordContainer>
-    </PagPasswordBackground>
+    
+    <Footer/>
+    </>
   );
 };
