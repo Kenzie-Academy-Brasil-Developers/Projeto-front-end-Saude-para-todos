@@ -9,7 +9,7 @@ export const UpasList = () => {
   const { allUnities, setAllUnities, setIdUnities, setModalInfoUnities, ModalUnities, setUnitie, loading, searchedUnities } =
     useContext(UnitiesContext);
   const { userZipCodeCity } = useContext(UserContext);
-    const allUnitiesFilter : iUnity[] | undefined|any =  allUnities.filter((i: { codigo_cep_estabelecimento: string }) => i.codigo_cep_estabelecimento.substring(0, 2) === userZipCodeCity.substring(0, 2))
+    const allUnitiesFilter : iUnity[] | undefined|any =  allUnities.filter((i: { codigo_cep_estabelecimento: string }) => i.codigo_cep_estabelecimento.substring(0, 2) === userZipCodeCity?.substring(0, 2))
 
     
   return (

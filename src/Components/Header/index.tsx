@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import defaultUserImg from "../../images/defaultUserImg.svg";
@@ -17,7 +16,6 @@ export const Header = () => {
     modalPassword,
     setModalPassword,
   } = useContext(UserContext);
-
 
   const { menuHeader, setMenuHeader } = useContext(UnitiesContext);
 

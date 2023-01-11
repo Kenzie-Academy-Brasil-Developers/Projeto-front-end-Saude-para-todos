@@ -4,7 +4,6 @@ import { Footer } from "../../Components/Footer";
 import { FormSearch } from "../../Components/FormSearch";
 import { Header } from "../../Components/Header";
 
-
 import { UpasList } from "../../Components/ListUnities";
 import { UnityModal } from "../../Components/UnityModal";
 import { UnitiesContext } from "../../Providers/unitiesContext";
@@ -14,25 +13,23 @@ import { ModalUser } from "../../Components/ModalUser";
 import { UserContext } from "../../Providers/UserContext";
 import { Navigate } from "react-router-dom";
 
-
 export const HomePage = () => {
   const { loading, user } = useContext(UserContext);
+  const { modalInfoUnities } = useContext(UnitiesContext);
+  
   if (loading) {
     return <h2>Carrregando...</h2>;
   }
   return user ? (
-
     <div>
       <Header />
       <main>
-    
- <UpasList/>
-      
+        <UpasList />
       </main>
 
       <Footer />
-     
-      {modalInfoUnities && <UnityModal/>}
+
+      {modalInfoUnities && <UnityModal />}
     </div>
   ) : (
     <Navigate to="/" />
