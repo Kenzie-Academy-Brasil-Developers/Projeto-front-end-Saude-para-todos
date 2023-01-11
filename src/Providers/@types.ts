@@ -35,6 +35,9 @@ export interface iUserContext {
   userLogout: () => void;
   userEdit: () => void;
   autoLogin: () => void;
+
+  userZipCodeCity: string 
+  setUserZipCodeCity: React.Dispatch<any>
 }
 
 
@@ -49,6 +52,7 @@ export interface Iresponse {
 }
 
 export interface iUnity {
+  id:string;
   nome_fantasia: string;
   codigo_cep_estabelecimento: number;
   endereco_estabelecimento: string;
@@ -56,47 +60,36 @@ export interface iUnity {
   bairro_estabelecimento: string;
   numero_telefone_estabelecimento: number;
 }
-
+export interface iZipCodeCity {
+  zipCode: string| number;
+}
+export interface iIdUnities{
+  id: number;
+ }
 export interface iUnitiesContext {
   menuHeader: boolean;
   setMenuHeader: React.Dispatch<React.SetStateAction<boolean>>;
-  allUnities: iUnity[] | null;
+  allUnities: iUnity[] | [] |any;
   setAllUnities: React.Dispatch<React.SetStateAction<iUnity[] | null>>
   singleUnity:iUnity | null
   setSingleUnity: React.Dispatch<React.SetStateAction<iUnity | null>>
   createUnity:() => void;
   deleteUnity:() => void;
   editUnity:() => void;
-  getUnity:() => void;
   getALlUnities:() => void;
-
+  idUnities: number | null |any;
+  setIdUnities: React.Dispatch<any>
+  modalInfoUnities: boolean;
+  setModalInfoUnities: React.Dispatch<React.SetStateAction<boolean>>
+  ModalUnities: (id: number) => iUnity| any;
+  unitie: iUnity | null;
+  setUnitie: React.Dispatch<React.SetStateAction<iUnity | null>>
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  search: string | any;
+  setSearch:  any
+  searchedUnities: iUnity[] | [];
+  setSearchedUnities: React.Dispatch<React.SetStateAction<iUnity[] | []>>
+  searchUnities: (event: any) => void;
 }
 
-// {id: 1, nome_fantasia: 'PRONTO ATENDIMENTO MUNICIPAL DE SABAUDIA', codigo_cep_estabelecimento: '86720000', endereco_estabelecimento: 'AV CAMPOS SALES', numero_estabelecimento: '6', …}
-// bairro_estabelecimento
-// : 
-// "CENTRO"
-// codigo_cep_estabelecimento
-// : 
-// "86720000"
-// descricao_turno_atendimento
-// : 
-// "ATENDIMENTO CONTINUO DE 24 HORAS/DIA (PLANTAO:INCLUI SABADOS, DOMINGOS E FERIADOS)"
-// endereco_estabelecimento
-// : 
-// "AV CAMPOS SALES"
-// id
-// : 
-// 1
-// nome_fantasia
-// : 
-// "PRONTO ATENDIMENTO MUNICIPAL DE SABAUDIA"
-// numero_estabelecimento
-// : 
-// "6"
-// numero_telefone_estabelecimento
-// : 
-// "(44)32511145"
-// [[Prototype]]
-// : 
-// Object
