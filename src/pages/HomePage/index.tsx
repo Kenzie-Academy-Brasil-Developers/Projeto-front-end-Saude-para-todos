@@ -8,7 +8,7 @@ import { Navigate } from "react-router-dom";
 
 
 export const HomePage = () => {
-  const { loading, user } = useContext(UserContext);
+  const { loading, user, openModal, modalPassword } = useContext(UserContext);
   if (loading) {
     return <h2>Carrregando...</h2>;
   }
