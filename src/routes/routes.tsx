@@ -5,6 +5,7 @@ import { NotFoundPage } from "../pages/NotFoundPage";
 import { Routes } from "react-router-dom";
 import { Route } from "react-router";
 import { UnitiesProvider } from "../Providers/unitiesContext";
+import { AboutPage } from "../pages/AboutUsPage";
 
 // import { ProtectedRoutes } from "./protectedRoutes";
 
@@ -23,6 +24,7 @@ export const RoutesMain = () => {
         }
       />
       {/* </Route> */}
+      <Route path="/about" element={<AboutPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
