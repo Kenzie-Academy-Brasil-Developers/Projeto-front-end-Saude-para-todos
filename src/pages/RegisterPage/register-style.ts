@@ -3,6 +3,10 @@ import styled from "styled-components"
 export const StyledRegister = styled.main`
 
     margin: var(--unit-40) var(--unit-20);
+    margin: var(--unit-40) var(--unit-20);
+    display: flex;
+    justify-content: center;
+
 
     /* .brand > .logo {
         margin-bottom: var(--unit-24);
@@ -65,6 +69,7 @@ export const StyledRegister = styled.main`
         display: flex;
         align-items: center;
         justify-content: space-between;
+        gap: 5vw;
         margin-right: 16px;
     }
 
@@ -73,7 +78,6 @@ export const StyledRegister = styled.main`
         font-size: var(--unit-rem-18);
         font-weight: var(--font-weight-7);
         line-height: var(--font-line-height-1);
-        margin-top: 6px;
     }
 
     .content > div > .grey-Link {
@@ -102,6 +106,11 @@ export const StyledRegister = styled.main`
         display: flex;
         flex-direction: column;
         gap: var(--unit-16);
+    }
+
+    form > button {
+        
+        margin-top: var(--unit-32);
     }
 
     .content > div > p {
