@@ -1,4 +1,3 @@
-
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import defaultUserImg from "../../images/defaultUserImg.svg";
@@ -18,7 +17,6 @@ export const Header = () => {
     setModalPassword,
   } = useContext(UserContext);
 
-
   const { menuHeader, setMenuHeader } = useContext(UnitiesContext);
 
   return (
@@ -26,7 +24,7 @@ export const Header = () => {
       {!menuHeader ? (
         <StyledDiv>
           <div>
-            <img src={defaultUserImg} alt="" />
+            <img src={user? user.image : defaultUserImg} alt="" />
             <h4>Olá, {user?.name}</h4>
           </div>
           <div>

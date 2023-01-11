@@ -50,8 +50,8 @@ export interface iUserContext {
   userPassword: (formData: iRegisterFormValues, id: number | any) => void;
   autoLogin: () => void;
 
-  userZipCodeCity: string 
-  setUserZipCodeCity: React.Dispatch<any>
+  userZipCodeCity: string | null;
+  setUserZipCodeCity: React.Dispatch<React.SetStateAction<string | null>>
 }
 
 
