@@ -4,6 +4,7 @@ import { UnitiesContext } from "../../Providers/unitiesContext";
 import { UserContext } from "../../Providers/UserContext";
 import { StyledDiv } from "./header";
 import { StyledUl } from "./Menu/menu";
+import { StyledLink } from '../../styles/buttons-style' 
 
 export const Header = () => {
   const { userLogout, user, loading } = useContext(UserContext);
@@ -46,6 +47,7 @@ export const Header = () => {
               <li>Configurações</li>
               <li>Usuário</li>
               <li>Senha</li>
+              <StyledLink className="grey-Link" to={"/about"}>Sobre nós</StyledLink>
             </StyledUl>
           </nav>
         </>
