@@ -50,7 +50,11 @@ export interface iUserContext {
   userEdit: (formData: iRegisterFormValues, id: number | any) => void;
   userPassword: (formData: iRegisterFormValues, id: number | any) => void;
   autoLogin: () => void;
+
+  userZipCodeCity: string | null;
+  setUserZipCodeCity: React.Dispatch<React.SetStateAction<string | null>>
 }
+
 
 export interface IformData {
   email: string;
@@ -62,14 +66,57 @@ export interface Iresponse {
   user: iUser;
 }
 
+export interface iUnity {
+  id:string;
+  nome_fantasia: string;
+  codigo_cep_estabelecimento: number;
+  endereco_estabelecimento: string;
+  numero_estabelecimento: number;
+  bairro_estabelecimento: string;
+  numero_telefone_estabelecimento: number;
+}
+export interface iZipCodeCity {
+  zipCode: string| number;
+}
+export interface iIdUnities{
+  id: number;
+ }
 export interface iUnitiesContext {
   menuHeader: boolean;
   setMenuHeader: React.Dispatch<React.SetStateAction<boolean>>;
-  allUnities: boolean;
-  setAllUnities: React.Dispatch<React.SetStateAction<boolean>>;
-  // createUnity: (formData: idata | any) => void;
-  createUnity: (formData: idata) => void;
+<<<<<<< HEAD
+  allUnities: iUnity[];
+  setAllUnities: React.Dispatch<React.SetStateAction<iUnity[]>>
+=======
+
+  allUnities: iUnity[] | [] |any;
+  setAllUnities: React.Dispatch<React.SetStateAction<iUnity[] | null>>
+>>>>>>> b7b33c92b9f23c54b2f7f40c4f9ae48a751581ef
+  singleUnity:iUnity | null
+  setSingleUnity: React.Dispatch<React.SetStateAction<iUnity | null>>
+
+  editUnity:() => void;
+  getALlUnities:() => void;
+  idUnities: number | null |any;
+  setIdUnities: React.Dispatch<any>
+  modalInfoUnities: boolean;
+  setModalInfoUnities: React.Dispatch<React.SetStateAction<boolean>>
+  ModalUnities: (id: number) => iUnity| any;
+  unitie: iUnity | null;
+  setUnitie: React.Dispatch<React.SetStateAction<iUnity | null>>
+  loading: boolean;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>
+  search: string | any;
+  setSearch:  any
+  searchedUnities: iUnity[] | [];
+  setSearchedUnities: React.Dispatch<React.SetStateAction<iUnity[] | []>>
+<<<<<<< HEAD
+  newAllUnities: iUnity[];
+=======
+  searchUnities: (event: any) => void;
+  createUnity: (formData: IformData) => void;
   deleteUnity: (id: number | string) => void;
-  editUnity: () => void;
-  getUnities: () => void;
+
+>>>>>>> b7b33c92b9f23c54b2f7f40c4f9ae48a751581ef
 }
+

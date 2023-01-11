@@ -3,25 +3,29 @@ import styled from "styled-components";
 export const LoginContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   margin: 40px 0 0 0;
+  gap: 4rem;
 
-  h3 {
-    margin-bottom: 40px;
+  img {
+    min-width: 15rem;
+    
+    max-width: 20rem;
+    max-height: 50rem;
+    padding: 1.2rem 1.2rem;
   }
 
   form {
     flex-direction: column;
     display: flex;
-    padding: 30px 20px;
+    justify-content: center;
+
+    padding: 3rem 2rem;
     background-color: #f5f5f5;
     width: 100%;
-    max-width: 500px;
-
-    @media (min-width: 900px) {
-      background-color: #ffff;
-    }
+    max-width: 30rem;
+    max-height: 50rem;
   }
 
   span {

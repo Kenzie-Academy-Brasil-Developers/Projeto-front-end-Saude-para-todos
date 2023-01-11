@@ -1,4 +1,4 @@
-import { style } from "@mui/system";
+
 import styled from "styled-components";
 
 export const PagPasswordBackground = styled.section`
@@ -13,11 +13,9 @@ export const PagPasswordBackground = styled.section`
 `
 
 export const PagePasswordContainer = styled.div`
-    width: 350px;
-    height: 80%;
+    min-width: 100%;
+    height: 100vh;
     border-radius: 8px;
-    background-color: var(--grey-four);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,12 +46,10 @@ export const PagePasswordContainer = styled.div`
 `
 
 export const FormPagePassword = styled.form`
-    width: 90%;
     display: flex;
     flex-direction: column;
     gap: 18px;
-    background: var(--Grey-3);
-    color: var(--Color-white);
+    
 
     input, label{
         display: block;
@@ -72,8 +68,8 @@ export const FormPagePassword = styled.form`
     input[type='text'],
     input[type='email'],
     input[type="password"]{
-        background: var(--grey-four);
-        color: var(--black-color);
+        background: var(--white-color);
+        color: var(--primary-color);
         box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.25);
         border-radius: 25px;
         padding: 0 20px;
@@ -81,20 +77,14 @@ export const FormPagePassword = styled.form`
         height: 38.38px;
     }
     input:focus{
-        outline-color: var(--Grey-3);
+        outline-color: var(--primary-color);
     }
     input:disabled{
         cursor: not-allowed;
         opacity: .5s;
     }
-    select{
-        background: var(--Grey-2);
-        color: var(--Grey-1);
-        border-radius: 4px;
-        padding: 0 20px;
-        width: 100%;
-        height: 38.38px;
-    }
+    
+    
 `
 
 export const StyledDivPerfill = styled.div`
@@ -102,4 +92,15 @@ export const StyledDivPerfill = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 10px;
+
+    img{
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+
+    }
+
+    button{
+
+    }
 `

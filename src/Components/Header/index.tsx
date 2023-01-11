@@ -1,5 +1,4 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext} from "react";
 import defaultUserImg from "../../images/defaultUserImg.svg";
 import { UnitiesContext } from "../../Providers/unitiesContext";
 import { UserContext } from "../../Providers/UserContext";
@@ -11,10 +10,6 @@ export const Header = () => {
   const {
     userLogout,
     user,
-    openModal,
-    setOpenModal,
-    modalPassword,
-    setModalPassword,
   } = useContext(UserContext);
 
   const { menuHeader, setMenuHeader } = useContext(UnitiesContext);
@@ -24,7 +19,7 @@ export const Header = () => {
       {!menuHeader ? (
         <StyledDiv>
           <div>
-            <img src={defaultUserImg} alt="" />
+            <img src={user?.image ?  user?.image : defaultUserImg} alt="" />
             <h4>Olá, {user?.name}</h4>
           </div>
           <div>
@@ -36,7 +31,7 @@ export const Header = () => {
         <>
           <StyledDiv>
             <div>
-              <img src={defaultUserImg} alt="" />
+              <img src={user? user.image : defaultUserImg} alt="" />
               <h4>Olá, {user?.name}</h4>
             </div>
             <div>
@@ -53,18 +48,44 @@ export const Header = () => {
               <li>Postos de Saúde</li>
               <li>Upas</li>
               <li>Configurações</li>
-              <li>
-                {" "}
-                <Link to={"/PageUser"}>Usuário</Link>
+
+                <li
+                onClick={() => {
+                  setMenuHeader(false);
+                }}
+              >
+                <StyledLink className="grey-Link" to={"/RegisterUnitsr"}>
+                  Cadastrar Unidade
+                </StyledLink>
               </li>
-              <li>
-                {" "}
-                <Link to={"/PagePassword"}>Senha</Link>{" "}
+
+
+              <li
+                onClick={() => {
+                  setMenuHeader(false);
+                }}
+              >
+                <StyledLink className="grey-Link" to={"/PageUser"}>
+                  Usuário
+                </StyledLink>
               </li>
-              <li>
-                <Link to={"/RegisterUnits"}>Cadastrar Unidade</Link>
+
+              <li
+                onClick={() => {
+                  setMenuHeader(false);
+                }}
+              >
+                <StyledLink className="grey-Link" to={"/PagePassword"}>
+                  Senha
+                </StyledLink>
               </li>
-              <li>
+
+              <li
+                onClick={() => {
+                  setMenuHeader(false);
+                }}
+              >
+
                 <StyledLink className="grey-Link" to={"/about"}>
                   Sobre nós
                 </StyledLink>
