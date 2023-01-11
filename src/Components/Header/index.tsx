@@ -24,7 +24,7 @@ export const Header = () => {
       {!menuHeader ? (
         <StyledDiv>
           <div>
-            <img src={defaultUserImg} alt="" />
+            <img src={user? user.image : defaultUserImg} alt="" />
             <h4>Olá, {user?.name}</h4>
           </div>
           <div>

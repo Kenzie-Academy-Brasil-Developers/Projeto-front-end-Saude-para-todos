@@ -33,48 +33,67 @@ export const PageUser = () => {
      userEdit(formData, user?.id)
   }
   return (
-    <PageUserBackground>
-    <PageUserContainer>
-      <div className="textArea">
-         <Link to={'/home'}> Voltar </Link> 
-      </div>
-      <StyledDivPerfil>
-      {editModal ? "O que você deseja atualizar" : <img src={defaultUserImg} alt="" />}
-        
-        <button onClick={() => setEditModal(!editModal)}>
-          {editModal ? "Cancelar" : "Editar Usuário"}
-        </button>
-      </StyledDivPerfil>
-      <div>
-        <FormModalUser onSubmit={handleSubmit(submit)}>
-          <input
-            type="text"
-            placeholder={user?.name}
-            {...register("name")}
-            disabled={!editModal}
-          />
-          {errors.name && <p className="p-error" aria-label="Error: Name">{errors.name.message}</p>}
-          <input
-            type="email"
-            disabled
-            placeholder={user?.email}
-            {...register("email")}
-          />
-          <input type="text" placeholder={user?.city} disabled {...register("city")}/>
-          <input
-            type="text"
-            placeholder={user?.state}
-            disabled
-            {...register("state")}
-          />
-          <input type="text" placeholder="Image" disabled={!editModal} {...register("image")}/>
-          {errors.image && <p className="p-error" aria-label="Error: Image Confirmation">{errors.image.message}</p>}
-          <input type="text" disabled placeholder={user?.zipCode} {...register("zipCode")}/>
-          {editModal && <button type="submit">Enviar</button>}
-        </FormModalUser>
-      </div>
-    </PageUserContainer>
-  </PageUserBackground>
-  )
-}
-
+    <>
+      <Header />
+      <PageUserContainer>
+        <div className="textArea">
+          <Link to={"/home"}> Voltar </Link>
+        </div>
+        <StyledDivPerfil>
+          <img src={user ? user.image : defaultUserImg} alt="" />
+          <h4>{user?.name}</h4>
+        </StyledDivPerfil>
+        <div>
+          <FormModalUser onSubmit={handleSubmit(submit)}>
+            <input
+              type="text"
+              placeholder={user?.name}
+              {...register("name")}
+            />
+            {errors.name && (
+              <p className="p-error" aria-label="Error: Name">
+                {errors.name.message}
+              </p>
+            )}
+            <input
+              type="email"
+              disabled
+              placeholder={user?.email}
+              {...register("email")}
+            />
+            <input
+              type="text"
+              placeholder={user?.city}
+              disabled
+              {...register("city")}
+            />
+            <input
+              type="text"
+              placeholder={user?.state}
+              disabled
+              {...register("state")}
+            />
+            <input
+              type="text"
+              placeholder="Image"
+              {...register("image")}
+            />
+            {errors.image && (
+              <p className="p-error" aria-label="Error: Image Confirmation">
+                {errors.image.message}
+              </p>
+            )}
+            <input
+              type="text"
+              disabled
+              placeholder={user?.zipCode}
+              {...register("zipCode")}
+            />
+            <button type="submit">Enviar</button>
+          </FormModalUser>
+        </div>
+      </PageUserContainer>
+      <Footer />
+    </>
+  );
+};
