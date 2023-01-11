@@ -6,7 +6,10 @@ export const StyledDivUnitiesUl = styled.div`
     display: flex;
     justify-content: center;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
     @media(min-width: 768px){
+        padding-left: 10px;
         justify-content: flex-start;
     }
 `
@@ -18,7 +21,7 @@ export const StyledUlListUnities = styled.ul`
     gap: 10px;
     padding: var(--unit-16);
     @media(min-width: 768px){
-        width: 100%;
+        width: 90%;
         justify-content: flex-start;
   
     }
@@ -36,6 +39,8 @@ export const StyledCardListUnities = styled.li`
     background-color: var(--grey-four);
     box-shadow: 2.5px 2.5px 1px  var(--grey-two);
     text-align: center;
+    align-items: center;
+    justify-content: center;
     h2{
         font-size: var(--unit-16);
     }

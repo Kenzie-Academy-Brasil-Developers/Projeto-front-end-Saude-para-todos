@@ -3,11 +3,10 @@ import React, { useContext } from "react";
 import { Footer } from "../../Components/Footer";
 import { FormSearch } from "../../Components/FormSearch";
 import { Header } from "../../Components/Header";
-
+import { ListPoliclinicas } from "../../Components/ListPoliclinicas";
 import { UpasList } from "../../Components/ListUnities";
 import { UnityModal } from "../../Components/UnityModal";
 import { UnitiesContext } from "../../Providers/unitiesContext";
-
 import { ModalPassword } from "../../Components/ModalPassword";
 import { ModalUser } from "../../Components/ModalUser";
 import { UserContext } from "../../Providers/UserContext";
@@ -30,10 +29,10 @@ export const HomePage = () => {
         <UpasList />
 
       </main>
-
       <Footer />
-
-      {modalInfoUnities && <UnityModal />}
+      <UpasList/>
+      <ListPoliclinicas/>
+      {modalInfoUnities && <UnityModal/>}
     </div>
   ) : (
     <Navigate to="/" />

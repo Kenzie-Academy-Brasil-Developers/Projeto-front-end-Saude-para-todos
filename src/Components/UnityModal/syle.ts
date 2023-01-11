@@ -6,45 +6,70 @@ export const StyledDivModalUnitiesUpa = styled.div`
     align-items: center;
     width: 100%;
     height: 100%;
-    min-width: 100vw;
-    min-height: 100vh;
+    max-height: 100vh;
+    max-width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
-    background-color: aqua;
+    background-color: #00000090;
     @media(min-width:768px){
         top: -80px;
     }
 
 `
 export const StyledSectionModalUnitiesUpa = styled.section`
+        /* top: 50%;
+        left: 50%; */
         position: fixed;
         width: 280px;
         min-width: 280px;
         display: flex;
         flex-direction: column;
-        padding: var(--unit-12);
+        padding: var(--unit-16);
         gap: 10px;
         border-radius: var(--radius-4);
-        background-color: var(--grey-one);
-        text-align: center;
+        background-color: var(--white-color);
+        text-align: start;
+        figure{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img{
+                width: 200px;
+                height: 200px;
+            }
+        }
         h2{
-            color: var(--white-color);
             font-size: var(--unit-16)
         }
         p{
-            color: var(--white-color);
             font-size: var(--unit-14)
         }
         span{
-            color: var(--primary-color);
             font-size: var(--unit-14)
         }
         button{
-            background-color: var(--grey-one);
-            color: var(--white-color);
+            background-color: var(--white-color);
             font-size: var(--unit-16);
         }
+        div{
+            display: flex;
+            gap: 5px;
+            a{
+                color: var(--primary-color);
+            }
+        }
+        section{
+                display: flex;
+                gap: 20px;
+                button{
+                    background-color: var(--white-color);
+                    border: solid 1px var(--primary-color);
+                    color: var(--primary-color);
+                    padding: 6px;
+                    border-radius:10px ;
+                }
+            }
         @media(min-width:768px){
             width: 380px;
         }

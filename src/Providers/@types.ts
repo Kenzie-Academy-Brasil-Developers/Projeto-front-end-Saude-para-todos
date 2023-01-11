@@ -84,9 +84,14 @@ export interface iIdUnities{
 export interface iUnitiesContext {
   menuHeader: boolean;
   setMenuHeader: React.Dispatch<React.SetStateAction<boolean>>;
+<<<<<<< HEAD
+  allUnities: iUnity[];
+  setAllUnities: React.Dispatch<React.SetStateAction<iUnity[]>>
+=======
 
   allUnities: iUnity[] | [] |any;
   setAllUnities: React.Dispatch<React.SetStateAction<iUnity[] | null>>
+>>>>>>> b7b33c92b9f23c54b2f7f40c4f9ae48a751581ef
   singleUnity:iUnity | null
   setSingleUnity: React.Dispatch<React.SetStateAction<iUnity | null>>
 
@@ -105,9 +110,13 @@ export interface iUnitiesContext {
   setSearch:  any
   searchedUnities: iUnity[] | [];
   setSearchedUnities: React.Dispatch<React.SetStateAction<iUnity[] | []>>
+<<<<<<< HEAD
+  newAllUnities: iUnity[];
+=======
   searchUnities: (event: any) => void;
   createUnity: (formData: IformData) => void;
   deleteUnity: (id: number | string) => void;
 
+>>>>>>> b7b33c92b9f23c54b2f7f40c4f9ae48a751581ef
 }
 
