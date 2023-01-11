@@ -1,6 +1,14 @@
 import React, { useContext } from "react";
+
 import { Footer } from "../../Components/Footer";
+import { FormSearch } from "../../Components/FormSearch";
 import { Header } from "../../Components/Header";
+
+
+import { UpasList } from "../../Components/ListUnities";
+import { UnityModal } from "../../Components/UnityModal";
+import { UnitiesContext } from "../../Providers/unitiesContext";
+
 import { ModalPassword } from "../../Components/ModalPassword";
 import { ModalUser } from "../../Components/ModalUser";
 import { UserContext } from "../../Providers/UserContext";
@@ -17,12 +25,14 @@ export const HomePage = () => {
     <div>
       <Header />
       <main>
-        {/* {openModal && <ModalUser/>}
-        {modalPassword && <ModalPassword/>} */}
-      <h1>body</h1>
+    
+ <UpasList/>
       
       </main>
+
       <Footer />
+     
+      {modalInfoUnities && <UnityModal/>}
     </div>
   ) : (
     <Navigate to="/" />
