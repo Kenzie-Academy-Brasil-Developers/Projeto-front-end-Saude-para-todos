@@ -54,6 +54,17 @@ export const Header = () => {
               <li>Upas</li>
               <li>Configurações</li>
 
+                <li
+                onClick={() => {
+                  setMenuHeader(false);
+                }}
+              >
+                <StyledLink className="grey-Link" to={"/RegisterUnitsr"}>
+                  Cadastrar Unidade
+                </StyledLink>
+              </li>
+
+
               <li
                 onClick={() => {
                   setMenuHeader(false);
@@ -79,6 +90,7 @@ export const Header = () => {
                   setMenuHeader(false);
                 }}
               >
+
                 <StyledLink className="grey-Link" to={"/about"}>
                   Sobre nós
                 </StyledLink>

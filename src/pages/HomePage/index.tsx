@@ -14,9 +14,11 @@ import { UserContext } from "../../Providers/UserContext";
 import { Navigate } from "react-router-dom";
 
 export const HomePage = () => {
-  const { loading, user } = useContext(UserContext);
+
+  const { loading, user, openModal, modalPassword } = useContext(UserContext);
   const { modalInfoUnities } = useContext(UnitiesContext);
   
+
   if (loading) {
     return <h2>Carrregando...</h2>;
   }
@@ -24,7 +26,9 @@ export const HomePage = () => {
     <div>
       <Header />
       <main>
+
         <UpasList />
+
       </main>
 
       <Footer />

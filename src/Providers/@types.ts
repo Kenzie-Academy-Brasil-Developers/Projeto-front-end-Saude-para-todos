@@ -1,5 +1,6 @@
 import React from "react";
 import { iRegisterFormValues } from "../pages/RegisterPage/interfaceRegister";
+import { idata } from "../pages/RegisterUnits/@types";
 export interface iDefaultProvidersProps {
   children: React.ReactNode;
 }
@@ -26,7 +27,7 @@ export interface iUserContext {
   modalPassword: boolean;
   setModalPassword: React.Dispatch<React.SetStateAction<boolean>>;
   editModal: boolean;
-  setEditModal: React.Dispatch<React.SetStateAction<boolean>>
+  setEditModal: React.Dispatch<React.SetStateAction<boolean>>;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   userToken: string | null;
   setUserToken: React.Dispatch<React.SetStateAction<string | null>>;
@@ -60,10 +61,10 @@ export interface IformData {
   password: string | number;
 }
 
- export interface Iresponse {
+export interface Iresponse {
   accessToken: string;
   user: iUser;
-} 
+}
 
 export interface iUnity {
   id:string;
