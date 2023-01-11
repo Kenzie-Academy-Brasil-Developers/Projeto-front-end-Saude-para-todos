@@ -14,6 +14,13 @@ div{
     gap:10px;
 }
 
+div > img{
+    width:30px;
+    height:30px;
+    background: transparent;
+    border-radius: 50%;
+}
+
 button{
     color:white;
     background-color: transparent;
