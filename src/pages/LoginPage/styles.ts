@@ -17,6 +17,11 @@ export const LoginContainer = styled.div`
     padding: 30px 20px;
     background-color: #f5f5f5;
     width: 100%;
+    max-width: 500px;
+
+    @media (min-width: 900px) {
+      background-color: #ffff;
+    }
   }
 
   span {
@@ -27,8 +32,6 @@ export const LoginContainer = styled.div`
 
   p {
     color: var(--Negative);
-    position: relative;
-    bottom: 10px;
     font-family: var(--Inter);
     font-size: 14px;
     font-weight: 400;

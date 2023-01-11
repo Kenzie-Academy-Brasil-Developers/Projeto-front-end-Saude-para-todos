@@ -1,3 +1,4 @@
+
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import defaultUserImg from "../../images/defaultUserImg.svg";
@@ -5,6 +6,7 @@ import { UnitiesContext } from "../../Providers/unitiesContext";
 import { UserContext } from "../../Providers/UserContext";
 import { StyledDiv } from "./header";
 import { StyledUl } from "./Menu/menu";
+import { StyledLink } from '../../styles/buttons-style' 
 
 export const Header = () => {
   const { userLogout, user, openModal,
@@ -48,6 +50,7 @@ export const Header = () => {
               <li>Configurações</li>
               <li> <Link to={"/PageUser"}>Usuário</Link></li>
               <li > <Link to={"/PagePassword"}>Senha</Link> </li>
+              <StyledLink className="grey-Link" to={"/about"}>Sobre nós</StyledLink>
             </StyledUl>
           </nav>
         </>

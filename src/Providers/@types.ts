@@ -43,6 +43,8 @@ export interface iUserContext {
     setLoading: React.Dispatch<React.SetStateAction<boolean>>
   ) => void;
 
+  localStorageToken: string | any;
+
   userLogout: () => void;
   userEdit: (formData: iRegisterFormValues, id: number | any) => void;
   userPassword: (formData: iRegisterFormValues, id: number | any) => void;
@@ -64,8 +66,8 @@ export interface iUnitiesContext {
   setMenuHeader: React.Dispatch<React.SetStateAction<boolean>>;
   allUnities: boolean;
   setAllUnities: React.Dispatch<React.SetStateAction<boolean>>;
-  createUnity: () => void;
-  deleteUnity: () => void;
+  createUnity: (formData: IformData) => void;
+  deleteUnity: (id: number | string) => void;
   editUnity: () => void;
   getUnities: () => void;
 }

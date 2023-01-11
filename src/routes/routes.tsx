@@ -7,8 +7,10 @@ import { Route } from "react-router";
 import { UnitiesProvider } from "../Providers/unitiesContext";
 import { PageUser } from "../pages/PageUser";
 import { PagePassword } from "../pages/PagePassword";
+import { AboutPage } from "../pages/AboutUsPage";
 
-// import { ProtectedRoutes } from "./protectedRoutes";
+
+
 
 export const RoutesMain = () => {
   return (
@@ -27,6 +29,7 @@ export const RoutesMain = () => {
         }
       />
       {/* </Route> */}
+      <Route path="/about" element={<AboutPage />} />
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );

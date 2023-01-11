@@ -4,12 +4,16 @@ import { Header } from "../../Components/Header";
 import { ModalPassword } from "../../Components/ModalPassword";
 import { ModalUser } from "../../Components/ModalUser";
 import { UserContext } from "../../Providers/UserContext";
+import { Navigate } from "react-router-dom";
+
 
 export const HomePage = () => {
-  const {openModal, setOpenModal, modalPassword, 
-    setModalPassword}= useContext(UserContext)
+  const { loading, user } = useContext(UserContext);
+  if (loading) {
+    return <h2>Carrregando...</h2>;
+  }
+  return user ? (
 
-  return (
     <div>
       <Header />
       <main>
@@ -20,5 +24,7 @@ export const HomePage = () => {
       </main>
       <Footer />
     </div>
+  ) : (
+    <Navigate to="/" />
   );
 };

@@ -108,6 +108,36 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
       toast.error(error);
     }
   };
+
+
+  useEffect(() => {
+    const loadUser = async () => {
+      if (!localStorageToken) {
+        setLoading(false);
+        return;
+      }
+
+      const userId = localStorage.getItem("@userId");
+
+      try {
+        const request = await Api.get(`users/${userId}`, {
+          headers: {
+            Authorization: `Bearer ${localStorageToken}`,
+            "Content-Type": "application/json",
+          },
+        });
+
+        setUser(request.data);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadUser();
+  }, [localStorageToken]);
+
+
   return (
     <UserContext.Provider
       value={{
@@ -129,6 +159,7 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
         editModal, 
         setEditModal,
         autoLogin,
+        localStorageToken,
       }}
     >
       {children}
