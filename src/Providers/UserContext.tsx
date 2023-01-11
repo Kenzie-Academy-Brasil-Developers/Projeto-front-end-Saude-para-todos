@@ -88,7 +88,7 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
       }
     };
     loadUser();
-  }, []);
+  }, [localStorageToken]);
 
   return (
     <UserContext.Provider
