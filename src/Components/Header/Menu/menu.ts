@@ -5,7 +5,7 @@ export const StyledUl = styled.ul`
   flex-direction: column;
   padding: 10px 30px;
   height: 100vh;
-
+  background-color: var(--grey-four);
   li {
     border-bottom: 1px solid black;
     padding: 15px;
