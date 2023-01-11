@@ -38,8 +38,8 @@ export const PageUser = () => {
          <Link to={'/home'}> Voltar </Link> 
       </div>
       <StyledDivPerfil>
-        <img src={defaultUserImg} alt="" />
-        <h4>{user?.name}</h4>
+      {editModal ? "O que você deseja atualizar" : <img src={defaultUserImg} alt="" />}
+        
         <button onClick={() => setEditModal(!editModal)}>
           {editModal ? "Cancelar" : "Editar Usuário"}
         </button>
