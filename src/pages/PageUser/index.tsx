@@ -27,10 +27,11 @@ export const PageUser = () => {
     mode: "onChange",
     resolver: yupResolver(PageUserSchema),
   });
-
-  const submit: SubmitHandler<iRegisterFormValues> = (formData) => {
-    userEdit(formData, user?.id);
-  };
+  
+  const submit:SubmitHandler<iRegisterFormValues>=(formData) => {
+    
+     userEdit(formData, user?.id)
+  }
   return (
     <>
       <Header />
