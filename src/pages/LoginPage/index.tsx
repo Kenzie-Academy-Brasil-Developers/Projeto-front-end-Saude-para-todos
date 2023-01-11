@@ -8,6 +8,7 @@ import { Button } from "../../Components/Button";
 import InputMaterial from "../../Components/InputMaterial";
 import { Link } from "react-router-dom";
 import { IFormData } from "./interfaceLogin";
+import logoSaude from "../../images/logo.svg"
 
 export const LoginPage = () => {
   const {
