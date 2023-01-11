@@ -110,6 +110,7 @@ export const RegisterUnits = () => {
               {errors.numero_telefone_estabelecimento.message}
             </p>
           )}
+
           <input
             type="text"
             id="descricao_turno_atendimento"
