@@ -8,14 +8,25 @@ export interface iUserData {
   user: iUser;
 }
 export interface iUser {
+  image: string;
   email: string;
   name: string;
+  password: string;
+  city: string;
+  state: string;
+  zipCode: string;
   age: number;
   id: number;
   isAdmin?: boolean;
 }
 export interface iUserContext {
   loading: boolean;
+  openModal: boolean;
+  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
+  modalPassword: boolean;
+  setModalPassword: React.Dispatch<React.SetStateAction<boolean>>;
+  editModal: boolean;
+  setEditModal: React.Dispatch<React.SetStateAction<boolean>>
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
   userToken: string | null;
   setUserToken: React.Dispatch<React.SetStateAction<string | null>>;
@@ -35,7 +46,8 @@ export interface iUserContext {
   localStorageToken: string | any;
 
   userLogout: () => void;
-  userEdit: () => void;
+  userEdit: (formData: iRegisterFormValues, id: number | any) => void;
+  userPassword: (formData: iRegisterFormValues, id: number | any) => void;
   autoLogin: () => void;
 }
 
@@ -44,10 +56,10 @@ export interface IformData {
   password: string | number;
 }
 
-export interface Iresponse {
+ export interface Iresponse {
   accessToken: string;
   user: iUser;
-}
+} 
 
 export interface iUnitiesContext {
   menuHeader: boolean;
