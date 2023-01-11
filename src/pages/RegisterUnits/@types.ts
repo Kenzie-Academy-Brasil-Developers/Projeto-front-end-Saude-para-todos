@@ -1,5 +1,5 @@
 export interface idata {
-  userId: 5;
+  userId: number | string | null;
   nome_fantasia: string;
   codigo_cep_estabelecimento: number;
   endereco_estabelecimento: string;
