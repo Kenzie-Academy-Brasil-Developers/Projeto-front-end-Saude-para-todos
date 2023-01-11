@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Api } from "../services/Api";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,6 +11,9 @@ import { iDefaultProvidersProps, iUserData } from "./@types";
 export const UserContext = createContext({} as iUserContext);
 export const UserProvider = ({ children }: iDefaultProvidersProps) => {
   const [loading, setLoading] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [editModal, setEditModal]= useState(false);
+  const [modalPassword, setModalPassword]= useState(false);
   const localStorageToken = localStorage.getItem("@SaudeParaTodos");
   const [userToken, setUserToken] = useState(
     localStorageToken ? localStorageToken : null
@@ -40,8 +43,51 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
     setUser(null);
     navigate("/");
   };
+ 
+ const userEdit = async (formData: iRegisterFormValues, id:number) => {
+    
+    console.log(id)
+    try {
+      Api.defaults.headers.common.authorization = `Bearer ${localStorageToken}`;
+      const response = await Api.patch(`users/${id}`,formData,{
+        
+      });
+      toast.success("Editado com sucesso")
+      setUser(response.data)
+      setTimeout(() => {
+        navigate("/home");
+      }, 3000);
+      setOpenModal(false)
+      setEditModal(false)
+      setModalPassword(false) 
+      console.log(response.data)
+    } catch (error) {
+      
+    }
+  }; 
 
-  const userEdit = () => {};
+  const userPassword = async (formData: iRegisterFormValues, id:number) => {
+    
+    console.log(id)
+    try {
+      Api.defaults.headers.common.authorization = `Bearer ${localStorageToken}`;
+      const response = await Api.patch(`users/${id}`,formData,{
+        
+      });
+      toast.success("Editado com sucesso")
+      setUser(response.data)
+      setTimeout(() => {
+        navigate("/home");
+      }, 3000);
+      setOpenModal(false)
+      setEditModal(false)
+      setModalPassword(false) 
+      console.log(response.data)
+    } catch (error) {
+      
+    }
+  }; 
+
   const autoLogin = () => {};
 
   const userLogin = async (
@@ -62,6 +108,7 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
       toast.error(error);
     }
   };
+
 
   useEffect(() => {
     const loadUser = async () => {
@@ -88,7 +135,8 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
       }
     };
     loadUser();
-  }, []);
+  }, [localStorageToken]);
+
 
   return (
     <UserContext.Provider
@@ -103,10 +151,26 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
         userLogin,
         userLogout,
         userEdit,
+        userPassword,
+        openModal,
+        setOpenModal,
+        modalPassword, 
+        setModalPassword,
+        editModal, 
+        setEditModal,
         autoLogin,
+        localStorageToken,
       }}
     >
       {children}
     </UserContext.Provider>
   );
 };
+/* const editTechList = tech.map(t => {
+        if(t.id === id){
+          return {...t, status: formData}
+        } else {
+          return t
+        }
+      }); 
+      setTech(editTechList) */

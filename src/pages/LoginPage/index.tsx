@@ -8,6 +8,7 @@ import { Button } from "../../Components/Button";
 import InputMaterial from "../../Components/InputMaterial";
 import { Link } from "react-router-dom";
 import { IFormData } from "./interfaceLogin";
+import logoSaude from "../../images/saude para todos.svg"
 
 export const LoginPage = () => {
   const {
@@ -30,8 +31,7 @@ export const LoginPage = () => {
   return (
     <>
       <LoginContainer>
-        <h1>ST</h1>
-        <h3>Saúde Para Todos</h3>
+        <img src={logoSaude} alt="" />
         <form onSubmit={handleSubmit(submit)}>
           <InputMaterial
             type="text"
