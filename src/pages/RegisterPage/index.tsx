@@ -26,7 +26,6 @@ export const RegisterPage = () => {
   return (
 
     <StyledRegister>
-
       <div className='content'>
 
         <div className='content-header'>

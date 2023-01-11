@@ -44,24 +44,48 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
     navigate("/");
   };
  
- const userEdit = async  (formData: iRegisterFormValues, id:number) => {
-   /*  try {
-      const response = await Api.patch(`users/${id}`, formData,{
-        headers:{
-          Authorization: `Bearer ${localStorageToken}`
-        }
+ const userEdit = async (formData: iRegisterFormValues, id:number) => {
+    
+    console.log(id)
+    try {
+      Api.defaults.headers.common.authorization = `Bearer ${localStorageToken}`;
+      const response = await Api.patch(`users/${id}`,formData,{
+        
       });
       toast.success("Editado com sucesso")
       setUser(response.data)
-      const editUser = user.map(status =>{
-        if(status.id === id){
-          return{...status, }
-        }
-      })
+      setTimeout(() => {
+        navigate("/home");
+      }, 3000);
+      setOpenModal(false)
+      setEditModal(false)
+      setModalPassword(false) 
       console.log(response.data)
     } catch (error) {
       
-    } */
+    }
+  }; 
+
+  const userPassword = async (formData: iRegisterFormValues, id:number) => {
+    
+    console.log(id)
+    try {
+      Api.defaults.headers.common.authorization = `Bearer ${localStorageToken}`;
+      const response = await Api.patch(`users/${id}`,formData,{
+        
+      });
+      toast.success("Editado com sucesso")
+      setUser(response.data)
+      setTimeout(() => {
+        navigate("/home");
+      }, 3000);
+      setOpenModal(false)
+      setEditModal(false)
+      setModalPassword(false) 
+      console.log(response.data)
+    } catch (error) {
+      
+    }
   }; 
 
   const autoLogin = () => {};
@@ -97,6 +121,7 @@ export const UserProvider = ({ children }: iDefaultProvidersProps) => {
         userLogin,
         userLogout,
         userEdit,
+        userPassword,
         openModal,
         setOpenModal,
         modalPassword, 

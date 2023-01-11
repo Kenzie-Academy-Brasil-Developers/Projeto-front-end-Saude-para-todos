@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import defaultUserImg from "../../images/defaultUserImg.svg";
 import { UnitiesContext } from "../../Providers/unitiesContext";
 import { UserContext } from "../../Providers/UserContext";
@@ -45,8 +46,8 @@ export const Header = () => {
               <li>Postos de Saúde</li>
               <li>Upas</li>
               <li>Configurações</li>
-              <li><button onClick={()=> setOpenModal(true)}>Usuário</button></li>
-              <li onClick={()=> setModalPassword(true)}>Senha</li>
+              <li> <Link to={"/PageUser"}>Usuário</Link></li>
+              <li > <Link to={"/PagePassword"}>Senha</Link> </li>
             </StyledUl>
           </nav>
         </>

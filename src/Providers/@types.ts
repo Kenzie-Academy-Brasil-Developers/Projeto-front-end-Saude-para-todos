@@ -8,8 +8,13 @@ export interface iUserData {
   user: iUser;
 }
 export interface iUser {
+  image: string;
   email: string;
   name: string;
+  password: string;
+  city: string;
+  state: string;
+  zipCode: string;
   age: number;
   id: number;
   isAdmin?: boolean;
@@ -40,6 +45,7 @@ export interface iUserContext {
 
   userLogout: () => void;
   userEdit: (formData: iRegisterFormValues, id: number | any) => void;
+  userPassword: (formData: iRegisterFormValues, id: number | any) => void;
   autoLogin: () => void;
 }
 

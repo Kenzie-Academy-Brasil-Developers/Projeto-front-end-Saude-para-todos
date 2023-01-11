@@ -1,7 +1,6 @@
-import { style } from "@mui/system";
 import styled from "styled-components";
 
-export const ModalBackground = styled.section`
+export const PageUserBackground = styled.section`
     width: 100%;
     min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.25);
@@ -12,7 +11,7 @@ export const ModalBackground = styled.section`
     align-items: center;
 `
 
-export const ModalContainer = styled.div`
+export const PageUserContainer = styled.div`
     width: 350px;
     height: 80%;
     border-radius: 8px;

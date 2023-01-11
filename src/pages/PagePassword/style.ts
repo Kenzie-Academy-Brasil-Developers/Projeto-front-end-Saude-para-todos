@@ -1,7 +1,7 @@
 import { style } from "@mui/system";
 import styled from "styled-components";
 
-export const ModalBackground = styled.section`
+export const PagPasswordBackground = styled.section`
     width: 100%;
     min-height: 100vh;
     background-color: rgba(0, 0, 0, 0.25);
@@ -12,7 +12,7 @@ export const ModalBackground = styled.section`
     align-items: center;
 `
 
-export const ModalContainer = styled.div`
+export const PagePasswordContainer = styled.div`
     width: 350px;
     height: 80%;
     border-radius: 8px;
@@ -47,7 +47,7 @@ export const ModalContainer = styled.div`
 
 `
 
-export const FormModalUser = styled.form`
+export const FormPagePassword = styled.form`
     width: 90%;
     display: flex;
     flex-direction: column;
@@ -97,7 +97,7 @@ export const FormModalUser = styled.form`
     }
 `
 
-export const StyledDivPerfil = styled.div`
+export const StyledDivPerfill = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
