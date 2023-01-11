@@ -16,61 +16,66 @@ import { Header } from "../../Components/Header";
 import { Footer } from "../../Components/Footer";
 
 export const PagePassword = () => {
-  const {
-    user,
-    setOpenModal,
-    editModal,
-    setEditModal,
-    userEdit,
-    userPassword,
-  } = useContext(UserContext);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<iRegisterFormValues>({
-    mode: "onChange",
-    resolver: yupResolver(PagePasswordSchema),
-  });
-
-  const submit: SubmitHandler<iRegisterFormValues> = (formData) => {
-    console.log(formData);
-    console.log(user?.id);
-    userPassword(formData, user?.id);
-  };
-
-  return (
-    <>
-      <Header />
-      <PagePasswordContainer>
+    const {
+      user,
+      setOpenModal,
+      editModal,
+      setEditModal,
+      userEdit,
+      userPassword,
+    } = useContext(UserContext);
+  
+    const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useForm<iRegisterFormValues>({
+      mode: "onChange",
+      resolver: yupResolver(PagePasswordSchema)
+    });
+    
+    const submit:SubmitHandler<iRegisterFormValues>=(formData) => {
+        
+        userEdit(formData, user?.id)
+    }
+    console.log(errors)
+    return (
+      <PagPasswordBackground>
+        <PagePasswordContainer>
         <div className="textArea">
-          <Link to={"/home"}> Voltar </Link>
-        </div>
-        <StyledDivPerfill>
-          <img src={defaultUserImg} alt="" />
-          <h4>{user?.name}</h4>
-        </StyledDivPerfill>
-        <div>
-          <FormPagePassword onSubmit={handleSubmit(submit)}>
-            <input type="password" placeholder="Senha Atual" disabled />
-            <input
-              type="password"
-              placeholder="Nova Senha."
-              {...register("password")}
-              disabled={!editModal}
-            />
-            <input
-              type="password"
-              placeholder="Confirmar Senha."
-              {...register("passwordConfirm")}
-              disabled={!editModal}
-            />
-            <button type="submit">Enviar</button>
-          </FormPagePassword>
-        </div>
-      </PagePasswordContainer>
-      <Footer />
-    </>
-  );
-};
+         <Link to={'/home'}> Voltar </Link> 
+      </div>
+          <StyledDivPerfill>
+            {editModal ? "O que você deseja atualizar" : <img src={defaultUserImg} alt="" />}
+            
+            <button onClick={() => setEditModal(!editModal)}>
+              {editModal ? "Cancelar" : "Editar Usuário"}
+            </button>
+          </StyledDivPerfill>
+          <div>
+        <FormPagePassword onSubmit={handleSubmit(submit)}>
+        <input
+            type="password"
+            placeholder="Senha Atual"
+            
+            disabled
+          />
+          <input
+            type="password"
+            placeholder="Nova Senha."
+            {...register("password")}
+            disabled={!editModal}
+          />
+          <input
+            type="password"
+            placeholder="Confirmar Senha."
+            {...register("passwordConfirm")}
+            disabled={!editModal}
+          />
+          {editModal && <button type="submit">Enviar</button>}
+         </FormPagePassword>
+          </div>
+        </PagePasswordContainer>
+      </PagPasswordBackground>
+    );

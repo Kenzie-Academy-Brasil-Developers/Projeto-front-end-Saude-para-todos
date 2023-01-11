@@ -1,13 +1,18 @@
 import * as yup from "yup"
 
 export const PagePasswordSchema = yup.object().shape({
-    name: yup
+    password: yup
     .string()
-    .required('O nome é obrigatório')
-    .min(3, "O nome precisa de ao menos 3 caracteres"),
+    .required("A senha é obrigatória")
+    .matches(/(?=.*?[A-Z])/, "É necessário uma letra maiúscula.")
+    .matches(/(?=.*?[a-z])/, "É necessário uma letra minúscula.")
+    .matches(/(?=.*?[0-9])/, "É necessário ao menos um número.")
+    .matches(/(?=.*?[#?!@$%^&*-])/, "É necessário ao menos um caractere especial")
+    .min(8, "É necessário uma senha de ao menos 8 caracteres"),
 
-    image: yup
+    passwordConfirm: yup
     .string()
-    .required("Sua imagem é obrigatório")
-    .min(5, "O nome precisa de ao menos 5 caracteres"),
+    .test('passwords-match', 'A senha precisa combinar.', function(value){
+        return this.parent.password === value
+    }),
 })
