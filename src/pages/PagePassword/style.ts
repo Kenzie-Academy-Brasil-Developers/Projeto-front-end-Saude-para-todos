@@ -13,11 +13,10 @@ export const PagPasswordBackground = styled.section`
 `
 
 export const PagePasswordContainer = styled.div`
-    width: 350px;
-    height: 80%;
+    min-width: 100%;
+    height: 100vh;
     border-radius: 8px;
-    background-color: var(--grey-four);
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +47,6 @@ export const PagePasswordContainer = styled.div`
 `
 
 export const FormPagePassword = styled.form`
-    width: 90%;
     display: flex;
     flex-direction: column;
     gap: 18px;
