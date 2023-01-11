@@ -1,12 +1,23 @@
-import React, { useContext} from "react";
+
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import defaultUserImg from "../../images/defaultUserImg.svg";
 import { UnitiesContext } from "../../Providers/unitiesContext";
 import { UserContext } from "../../Providers/UserContext";
 import { StyledDiv } from "./header";
 import { StyledUl } from "./Menu/menu";
+import { StyledLink } from "../../styles/buttons-style";
 
 export const Header = () => {
-  const { userLogout, user} = useContext(UserContext);
+  const {
+    userLogout,
+    user,
+    openModal,
+    setOpenModal,
+    modalPassword,
+    setModalPassword,
+  } = useContext(UserContext);
+
 
   const { menuHeader, setMenuHeader } = useContext(UnitiesContext);
 
@@ -44,8 +55,36 @@ export const Header = () => {
               <li>Postos de Saúde</li>
               <li>Upas</li>
               <li>Configurações</li>
-              <li>Usuário</li>
-              <li>Senha</li>
+
+              <li
+                onClick={() => {
+                  setMenuHeader(false);
+                }}
+              >
+                <StyledLink className="grey-Link" to={"/PageUser"}>
+                  Usuário
+                </StyledLink>
+              </li>
+
+              <li
+                onClick={() => {
+                  setMenuHeader(false);
+                }}
+              >
+                <StyledLink className="grey-Link" to={"/PagePassword"}>
+                  Senha
+                </StyledLink>
+              </li>
+
+              <li
+                onClick={() => {
+                  setMenuHeader(false);
+                }}
+              >
+                <StyledLink className="grey-Link" to={"/about"}>
+                  Sobre nós
+                </StyledLink>
+              </li>
             </StyledUl>
           </nav>
         </>

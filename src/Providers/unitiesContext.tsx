@@ -6,7 +6,9 @@ import { iUnitiesContext } from "./@types";
 import { UserContext } from "./UserContext";
 
 export const UnitiesContext = createContext({} as iUnitiesContext);
+
 export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
+
   const localStorageToken = localStorage.getItem("@SaudeParaTodos");
   const [allUnities, setAllUnities] = useState([] as iUnity[] | null | any);
   const [menuHeader, setMenuHeader] = useState(false);
@@ -18,8 +20,35 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
   const [loading, setLoading] = useState(false);
   const [search, setSearch]: string | any = useState("");
   const [searchedUnities, setSearchedUnities] = useState<iUnity[] | [] | any>([]);
-  const createUnity = () => {};
-  const deleteUnity = () => {};
+
+
+
+  const createUnity = async (formData: IformData) => {
+    try {
+      await Api.post(`unity`, formData, {
+        headers: {
+          Authorization: `Bearer ${localStorageToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const deleteUnity = async (id: number | string) => {
+    try {
+      await Api.delete(`unity/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorageToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const editUnity = () => {};
   
   useEffect(() => {
