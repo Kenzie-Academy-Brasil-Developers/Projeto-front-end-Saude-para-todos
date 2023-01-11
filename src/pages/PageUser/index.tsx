@@ -39,7 +39,7 @@ export const PageUser = () => {
           <Link to={"/home"}> Voltar </Link>
         </div>
         <StyledDivPerfil>
-          <img src={defaultUserImg} alt="" />
+          <img src={user ? user.image : defaultUserImg} alt="" />
           <h4>{user?.name}</h4>
         </StyledDivPerfil>
         <div>
@@ -48,7 +48,6 @@ export const PageUser = () => {
               type="text"
               placeholder={user?.name}
               {...register("name")}
-              disabled={!editModal}
             />
             {errors.name && (
               <p className="p-error" aria-label="Error: Name">
@@ -76,7 +75,6 @@ export const PageUser = () => {
             <input
               type="text"
               placeholder="Image"
-              disabled={!editModal}
               {...register("image")}
             />
             {errors.image && (
