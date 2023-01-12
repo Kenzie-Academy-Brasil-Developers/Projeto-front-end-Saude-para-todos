@@ -1,4 +1,4 @@
-import React, { useContext} from "react";
+import React, { useContext } from "react";
 import defaultUserImg from "../../images/defaultUserImg.svg";
 import { UnitiesContext } from "../../Providers/unitiesContext";
 import { UserContext } from "../../Providers/UserContext";
@@ -7,10 +7,7 @@ import { StyledUl } from "./Menu/menu";
 import { StyledLink } from "../../styles/buttons-style";
 
 export const Header = () => {
-  const {
-    userLogout,
-    user,
-  } = useContext(UserContext);
+  const { userLogout, user } = useContext(UserContext);
 
   const { menuHeader, setMenuHeader } = useContext(UnitiesContext);
 
@@ -19,7 +16,7 @@ export const Header = () => {
       {!menuHeader ? (
         <StyledDiv>
           <div>
-            <img src={user?.image ?  user?.image : defaultUserImg} alt="" />
+            <img src={user?.image ? user?.image : defaultUserImg} alt="" />
             <h4>Olá, {user?.name}</h4>
           </div>
           <div>
@@ -31,7 +28,7 @@ export const Header = () => {
         <>
           <StyledDiv>
             <div>
-              <img src={user? user.image : defaultUserImg} alt="" />
+              <img src={user ? user.image : defaultUserImg} alt="" />
               <h4>Olá, {user?.name}</h4>
             </div>
             <div>
@@ -49,16 +46,15 @@ export const Header = () => {
               <li>Upas</li>
               <li>Configurações</li>
 
-                <li
+              <li
                 onClick={() => {
                   setMenuHeader(false);
                 }}
               >
-                <StyledLink className="grey-Link" to={"/RegisterUnitsr"}>
+                <StyledLink className="grey-Link" to={"/RegisterUnits"}>
                   Cadastrar Unidade
                 </StyledLink>
               </li>
-
 
               <li
                 onClick={() => {
@@ -85,7 +81,6 @@ export const Header = () => {
                   setMenuHeader(false);
                 }}
               >
-
                 <StyledLink className="grey-Link" to={"/about"}>
                   Sobre nós
                 </StyledLink>
