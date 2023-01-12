@@ -5,7 +5,7 @@ background-color: var(--primary-color);
 color:white;
 padding: 25px 0;
 text-align: center;
-position: absolute;
+position: fixed;
 width:100%;
 bottom: 0;
 z-index: 11;
