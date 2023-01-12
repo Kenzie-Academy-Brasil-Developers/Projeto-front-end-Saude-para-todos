@@ -1,15 +1,19 @@
 import styled from "styled-components";
 
 export const StyledAboutPage = styled.div`
+#btnToHome{
+    margin:15px;
+    background-color: transparent;
+    color: var(--primary-color);
 
-
+}
 
     .content {
         display: flex;
         align-items: center;
         flex-direction: column;
         gap: var(--unit-24);
-        margin: 8%;
+        margin:20px;
     }
 
     .content > h1 {
@@ -23,24 +27,25 @@ export const StyledAboutPage = styled.div`
     }
 
     div > p {
-        color: var(--primary-color)
+        color: var(--primary-color);
+        line-height: 20px;
     }
 
     .content > span {
         display: flex;
         flex-direction: column;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 600;
         margin-bottom: var(--unit-8);
         text-align: center;
     }
 
     .content > span > .first {
-        margin-top: var(--unit-16);
+        margin-top: var(--unit-8);
     }
 
     .content > span > p {
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 500;
         margin-bottom: var(--unit-4);
         text-align: center;

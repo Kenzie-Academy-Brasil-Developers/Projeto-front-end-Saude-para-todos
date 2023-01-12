@@ -7,10 +7,8 @@ import { ListPoliclinicas } from "../../Components/ListPoliclinicas";
 import { UpasList } from "../../Components/ListUnities";
 import { UnityModal } from "../../Components/UnityModal";
 import { UnitiesContext } from "../../Providers/unitiesContext";
-import { ModalPassword } from "../../Components/ModalPassword";
-import { ModalUser } from "../../Components/ModalUser";
 import { UserContext } from "../../Providers/UserContext";
-import { Navigate } from "react-router-dom";
+import { StyledSectionHome } from "./homepage";
 
 export const HomePage = () => {
   const { loading, user, openModal, modalPassword } = useContext(UserContext);
@@ -19,16 +17,16 @@ export const HomePage = () => {
   if (loading) {
     return <h2>Carrregando...</h2>;
   }
-  return user ? (
-    <div>
-      <Header />
-      <FormSearch/>
-      <UpasList />
-      <ListPoliclinicas />
+  return (
+    <>
+      <StyledSectionHome>
+        <Header />
+        <FormSearch />
+        <UpasList />
+        <ListPoliclinicas />
+        <Footer />
       {modalInfoUnities && <UnityModal />}
-      <Footer />
-    </div>
-  ) : (
-    <Navigate to="/" />
+      </StyledSectionHome>
+    </>
   );
 };

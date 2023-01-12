@@ -5,7 +5,7 @@ export const StyledDivPoliclinicas = styled.div`
         flex-direction: column;
         padding: 10px;
         width: 500px;
-        height: 400px;
+        /* height: 400px; */
         gap: 10px;
         figure{
             img{

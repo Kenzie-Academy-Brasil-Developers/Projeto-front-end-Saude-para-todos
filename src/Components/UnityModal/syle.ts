@@ -4,21 +4,14 @@ export const StyledDivModalUnitiesUpa = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
-    max-height: 100vh;
-    max-width: 100vw;
-    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
     top: 0;
     left: 0;
     background-color: #00000090;
-    @media(min-width:768px){
-        top: -80px;
-    }
-
 `
 export const StyledSectionModalUnitiesUpa = styled.section`
-        position: fixed;
         width: 280px;
         min-width: 280px;
         display: flex;
