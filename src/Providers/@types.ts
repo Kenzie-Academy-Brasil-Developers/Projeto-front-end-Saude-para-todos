@@ -95,6 +95,8 @@ export interface iUnitiesContext {
   modalInfoUnities: boolean;
   setModalInfoUnities: React.Dispatch<React.SetStateAction<boolean>>;
   ModalUnities: (id: number) => iUnity | any;
+  setModalEditUnity: React.Dispatch<React.SetStateAction<boolean>>;
+  modalEditUnity: boolean;
   unitie: iUnity | null;
   setUnitie: React.Dispatch<React.SetStateAction<iUnity | null>>;
   loading: boolean;
@@ -105,5 +107,6 @@ export interface iUnitiesContext {
   setSearchedUnities: React.Dispatch<React.SetStateAction<iUnity[] | []>>;
   newAllUnities: iUnity[];
   createUnity: (formData: idata) => void;
+  editUnity: (id: number, formData: iUnity) => Promise<void>
   deleteUnity: (id: number) => void;
 }

@@ -5,7 +5,7 @@ import imagem from "../../images/hospital.png"
 
 export const UnityModal = () => {
   //no click do cart da unidade de saude, abre esse componente
-  const { singleUnity, deleteUnity, setModalInfoUnities } = useContext(UnitiesContext);
+  const { singleUnity, editUnity, deleteUnity, setModalInfoUnities, setModalEditUnity } = useContext(UnitiesContext);
   const unityId = singleUnity?.id
   console.log(singleUnity)
   return (
@@ -27,6 +27,7 @@ export const UnityModal = () => {
             </div>
             <section>
               <button onClick={ () => deleteUnity(unityId !== undefined ? unityId : 0)} >Deletar unidade</button>
+              {/* <button onClick={ () => setModalEditUnity(true)} >Editar unidade</button> */}
             </section>
            
           </StyledSectionModalUnitiesUpa>

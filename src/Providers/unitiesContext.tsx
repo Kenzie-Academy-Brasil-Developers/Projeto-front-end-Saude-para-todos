@@ -21,6 +21,7 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
   const [menuHeader, setMenuHeader] = useState(false);
   const [singleUnity, setSingleUnity] = useState({} as iUnity | null);
   const [modalInfoUnities, setModalInfoUnities] = useState(false);
+  const [modalEditUnity, setModalEditUnity] = useState(false);
   const [idUnities, setIdUnities] = useState<iIdUnities | null>(null);
   const [unitie, setUnitie] = useState<iUnity | null>(null);
   const { userZipCodeCity } = useContext(UserContext);
@@ -43,7 +44,7 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
           "Content-Type": "application/json",
         },
       });
-
+      setAllUnities([...allUnities, response.data])
       toast.success("Empresa Cadastrada com sucesso");
       console.log(response);
 
@@ -52,7 +53,39 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
     }
   };
 
+  const editUnity = async (id: number, formData: iUnity) => {
+  
+    try {
+      const response = await Api.patch(`unity/${id}`, {
+        headers: {
+          Authorization: `Bearer ${localStorageToken}`,
+          "Content-Type": "application/json",
+        },
+      });
+      
+      const newUnity = allUnities.map((unity:iUnity) => {
+
+        if(unity.id === id){
+          setSingleUnity(response.data)
+          return response.data
+        }
+        else{
+          return unity
+        }
+      })
+
+      setAllUnities(newUnity)
+      setModalEditUnity(false)
+      toast.success("Empresa Editada com sucesso");
+      console.log(response);
+
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   const deleteUnity = async (id: number) => {
+  
     try {
       const response = await Api.delete(`unity/${id}`, {
         headers: {
@@ -60,8 +93,10 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
           "Content-Type": "application/json",
         },
       });
-
-      toast.success("Empresa Cadastrada com sucesso");
+      let newUnities:iUnity = allUnities.filter((unity:iUnity)=> unity.id !== id)
+      setAllUnities(newUnities)
+      setModalInfoUnities(false)
+      toast.success("Empresa Deletada com sucesso");
       console.log(response);
 
     } catch (error) {
@@ -107,6 +142,7 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
         allUnities,
         setAllUnities,
         createUnity,
+        editUnity,
         deleteUnity,
         menuHeader,
         setMenuHeader,
@@ -117,6 +153,8 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
         setIdUnities,
         modalInfoUnities,
         setModalInfoUnities,
+        modalEditUnity,
+        setModalEditUnity,
         ModalUnities,
         unitie,
         setUnitie,
