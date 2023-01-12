@@ -22,6 +22,7 @@ export const StyledSectionModalUnitiesUpa = styled.section`
         border-radius: var(--radius-4);
         background-color: var(--white-color);
         text-align: start;
+        position: relative;
 
         .closeModal {
             position: absolute;
