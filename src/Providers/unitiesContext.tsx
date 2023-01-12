@@ -26,8 +26,8 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
   const { userZipCodeCity } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [search, setSearch]: string | any = useState("");
-
   const [searchedUnities, setSearchedUnities] = useState<iUnity[]>([]);
+  
   const newAllUnities = allUnities.filter((unity: any) => {
     const unityCep = String(unity.codigo_cep_estabelecimento).substring(0, 2);
     return search === ""
@@ -46,6 +46,7 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
 
       toast.success("Empresa Cadastrada com sucesso");
       console.log(response);
+
     } catch (error) {
       console.error(error);
     }

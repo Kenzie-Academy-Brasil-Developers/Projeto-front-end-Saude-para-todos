@@ -22,6 +22,7 @@ export const HomePage = () => {
   return user ? (
     <div>
       <Header />
+      <FormSearch/>
       <UpasList />
       <ListPoliclinicas />
       {modalInfoUnities && <UnityModal />}

@@ -32,9 +32,6 @@ export const UpasList = () => {
                 upa.numero_telefone_estabelecimento
               }
               codigo_cep_estabelecimento={upa.codigo_cep_estabelecimento}
-              // endereco_estabelecimento={upa.endereco_estabelecimento}
-              // numero_estabelecimento={upa.numero_estabelecimento}
-              // bairro_estabelecimento={upa.bairro_estabelecimento}
             />
           );
         })}

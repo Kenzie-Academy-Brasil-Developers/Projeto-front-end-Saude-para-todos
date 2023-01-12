@@ -22,7 +22,7 @@ export const StyledAboutPage = styled.div`
         width: 90%;
     }
 
-    p {
+    div > p {
         color: var(--primary-color)
     }
 

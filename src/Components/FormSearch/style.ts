@@ -18,7 +18,7 @@ export const StyledSearchHome = styled.div`
             
             width: 280px;
             height: 40px;
-            padding: 8px;
+            padding: 8px 16px;
             background-color: var(--grey-four);
             border-radius:var(--radius-4) ;
             box-shadow: 2.5px 2.5px 1px  var(--grey-two);
