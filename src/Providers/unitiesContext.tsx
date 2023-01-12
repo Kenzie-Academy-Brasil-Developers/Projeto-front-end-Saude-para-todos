@@ -1,9 +1,13 @@
-
 import { idata } from "../pages/RegisterUnits/@types";
 import { TIMEOUT } from "dns";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Api } from "../services/Api";
-import { iDefaultProvidersProps, IformData, iIdUnities, iUnity } from "./@types";
+import {
+  iDefaultProvidersProps,
+  IformData,
+  iIdUnities,
+  iUnity,
+} from "./@types";
 import { iUnitiesContext } from "./@types";
 import { UserContext } from "./UserContext";
 import { toast } from "react-toastify";
@@ -12,31 +16,24 @@ import "react-toastify/dist/ReactToastify.css";
 export const UnitiesContext = createContext({} as iUnitiesContext);
 
 export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
-
   const localStorageToken = localStorage.getItem("@SaudeParaTodos");
-  const [allUnities, setAllUnities] = useState([] as iUnity[]);
+  const [allUnities, setAllUnities] = useState([] as iUnity[] | any);
   const [menuHeader, setMenuHeader] = useState(false);
   const [singleUnity, setSingleUnity] = useState({} as iUnity | null);
   const [modalInfoUnities, setModalInfoUnities] = useState(false);
   const [idUnities, setIdUnities] = useState<iIdUnities | null>(null);
   const [unitie, setUnitie] = useState<iUnity | null>(null);
-  const { userZipCodeCity} = useContext(UserContext);
+  const { userZipCodeCity } = useContext(UserContext);
   const [loading, setLoading] = useState(false);
   const [search, setSearch]: string | any = useState("");
-<<<<<<< HEAD
-  const [searchedUnities, setSearchedUnities] = useState<iUnity[] >([]);
-  const newAllUnities = allUnities.filter((unity) => {
-    const unityCep = String( unity.codigo_cep_estabelecimento).substring(0,2)
-    return(
-    search === "" ?  unityCep === userZipCodeCity.substring(0,2) : unityCep === search.substring(0,2)
-    ) 
-  })
-  const createUnity = () => {};
-  const deleteUnity = () => {};
-=======
-  const [searchedUnities, setSearchedUnities] = useState<iUnity[] | [] | any>([]);
 
-
+  const [searchedUnities, setSearchedUnities] = useState<iUnity[]>([]);
+  const newAllUnities = allUnities.filter((unity: any) => {
+    const unityCep = String(unity.codigo_cep_estabelecimento).substring(0, 2);
+    return search === ""
+      ? unityCep === userZipCodeCity?.substring(0, 2)
+      : unityCep === search.substring(0, 2);
+  });
 
   const createUnity = async (formData: idata) => {
     try {
@@ -67,10 +64,6 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
     }
   };
 
->>>>>>> b7b33c92b9f23c54b2f7f40c4f9ae48a751581ef
-  const editUnity = () => {};
-  
-  
   useEffect(() => {
     (async () => {
       try {
@@ -101,8 +94,6 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
     }
   };
 
-
-
   const getALlUnities = () => {};
 
   return (
@@ -112,7 +103,6 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
         setAllUnities,
         createUnity,
         deleteUnity,
-        editUnity,
         menuHeader,
         setMenuHeader,
         getALlUnities,
@@ -132,7 +122,7 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
         searchedUnities,
         setSearchedUnities,
 
-        newAllUnities
+        newAllUnities,
       }}
     >
       {children}

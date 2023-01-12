@@ -13,10 +13,8 @@ import { UserContext } from "../../Providers/UserContext";
 import { Navigate } from "react-router-dom";
 
 export const HomePage = () => {
-
   const { loading, user, openModal, modalPassword } = useContext(UserContext);
   const { modalInfoUnities } = useContext(UnitiesContext);
-  
 
   if (loading) {
     return <h2>Carrregando...</h2>;
@@ -24,15 +22,10 @@ export const HomePage = () => {
   return user ? (
     <div>
       <Header />
-      <main>
-
-        <UpasList />
-
-      </main>
+      <UpasList />
+      <ListPoliclinicas />
+      {modalInfoUnities && <UnityModal />}
       <Footer />
-      <UpasList/>
-      <ListPoliclinicas/>
-      {modalInfoUnities && <UnityModal/>}
     </div>
   ) : (
     <Navigate to="/" />
