@@ -15,8 +15,8 @@ export const AboutPage = () => {
   return user ? (
     <StyledAboutPage>
       <Header />
-      <button>
-        <StyledLink className="grey-Link" to={"/home"}>
+      <button id="btnToHome">
+        <StyledLink to={"/home"}>
           Home
         </StyledLink>
       </button>

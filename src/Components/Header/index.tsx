@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import defaultUserImg from "../../images/defaultUserImg.svg";
 import { UnitiesContext } from "../../Providers/unitiesContext";
 import { UserContext } from "../../Providers/UserContext";
-import { StyledDiv } from "./header";
+import { StyledDiv} from "./header";
 import { StyledUl } from "./Menu/menu";
 import { StyledLink } from "../../styles/buttons-style";
 
@@ -51,7 +51,7 @@ export const Header = () => {
                   setMenuHeader(false);
                 }}
               >
-                <StyledLink className="grey-Link" to={"/RegisterUnits"}>
+                <StyledLink  to={"/RegisterUnits"}>
                   Cadastrar Unidade
                 </StyledLink>
               </li>
@@ -61,7 +61,7 @@ export const Header = () => {
                   setMenuHeader(false);
                 }}
               >
-                <StyledLink className="grey-Link" to={"/PageUser"}>
+                <StyledLink  to={"/PageUser"}>
                   Usuário
                 </StyledLink>
               </li>
@@ -71,7 +71,7 @@ export const Header = () => {
                   setMenuHeader(false);
                 }}
               >
-                <StyledLink className="grey-Link" to={"/PagePassword"}>
+                <StyledLink  to={"/PagePassword"}>
                   Senha
                 </StyledLink>
               </li>
@@ -81,7 +81,7 @@ export const Header = () => {
                   setMenuHeader(false);
                 }}
               >
-                <StyledLink className="grey-Link" to={"/about"}>
+                <StyledLink  to={"/about"}>
                   Sobre nós
                 </StyledLink>
               </li>
