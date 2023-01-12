@@ -52,14 +52,18 @@ export const UnitiesProvider = ({ children }: iDefaultProvidersProps) => {
     }
   };
 
-  const deleteUnity = async (id: number | string) => {
+  const deleteUnity = async (id: number) => {
     try {
-      await Api.delete(`unity/${id}`, {
+      const response = await Api.delete(`unity/${id}`, {
         headers: {
           Authorization: `Bearer ${localStorageToken}`,
           "Content-Type": "application/json",
         },
       });
+
+      toast.success("Empresa Cadastrada com sucesso");
+      console.log(response);
+
     } catch (error) {
       console.error(error);
     }

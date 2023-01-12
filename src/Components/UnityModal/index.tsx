@@ -5,11 +5,13 @@ import imagem from "../../images/hospital.png"
 
 export const UnityModal = () => {
   //no click do cart da unidade de saude, abre esse componente
-  const { singleUnity, setSingleUnity, setModalInfoUnities } = useContext(UnitiesContext);
+  const { singleUnity, deleteUnity, setModalInfoUnities } = useContext(UnitiesContext);
+  const unityId = singleUnity?.id
   console.log(singleUnity)
   return (
-        <StyledDivModalUnitiesUpa onClick={() => setModalInfoUnities(false)}>
+        <StyledDivModalUnitiesUpa>
           <StyledSectionModalUnitiesUpa>
+            <button className="closeModal" onClick={() => setModalInfoUnities(false)} >+</button>
             <figure>
             <img src={imagem} alt="" />
             </figure>
@@ -24,8 +26,7 @@ export const UnityModal = () => {
             <a target="_blank" href={`https://www.google.com/maps/search/?api=1&query=<${singleUnity?.codigo_cep_estabelecimento} >`}>Ver no Map</a>
             </div>
             <section>
-              <button>Atualizar unidade</button>
-              <button>Deletar unidade</button>
+              <button onClick={ () => deleteUnity(unityId !== undefined ? unityId : 0)} >Deletar unidade</button>
             </section>
            
           </StyledSectionModalUnitiesUpa>

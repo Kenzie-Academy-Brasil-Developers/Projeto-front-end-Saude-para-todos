@@ -66,7 +66,7 @@ export interface Iresponse {
 }
 
 export interface iUnity {
-  id: string;
+  id: number;
   nome_fantasia: string;
   codigo_cep_estabelecimento: number;
   endereco_estabelecimento: string;
@@ -105,5 +105,5 @@ export interface iUnitiesContext {
   setSearchedUnities: React.Dispatch<React.SetStateAction<iUnity[] | []>>;
   newAllUnities: iUnity[];
   createUnity: (formData: idata) => void;
-  deleteUnity: (id: number | string) => void;
+  deleteUnity: (id: number) => void;
 }

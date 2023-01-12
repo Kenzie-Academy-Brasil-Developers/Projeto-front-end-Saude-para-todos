@@ -18,18 +18,27 @@ export const StyledDivModalUnitiesUpa = styled.div`
 
 `
 export const StyledSectionModalUnitiesUpa = styled.section`
-        /* top: 50%;
-        left: 50%; */
         position: fixed;
         width: 280px;
         min-width: 280px;
         display: flex;
+        align-items: center;
         flex-direction: column;
         padding: var(--unit-16);
         gap: 10px;
         border-radius: var(--radius-4);
         background-color: var(--white-color);
         text-align: start;
+
+        .closeModal {
+            position: absolute;
+            right: 24px;
+            color: var(--primary-color);
+            transform: rotate(45deg);
+            font-size: var(--unit-32);
+            font-weight: var(--font-weight-4);
+        }
+
         figure{
             display: flex;
             justify-content: center;
@@ -37,6 +46,7 @@ export const StyledSectionModalUnitiesUpa = styled.section`
             img{
                 width: 200px;
                 height: 200px;
+                margin-bottom: 16px;
             }
         }
         h2{
@@ -67,7 +77,8 @@ export const StyledSectionModalUnitiesUpa = styled.section`
                     border: solid 1px var(--primary-color);
                     color: var(--primary-color);
                     padding: 6px;
-                    border-radius:10px ;
+                    border-radius:10px;
+                    margin: 20px 0;
                 }
             }
         @media(min-width:768px){
