@@ -98,6 +98,9 @@ export const StyledRegister = styled.main`
         padding: 0 0;
     }
 
+    input{
+        width:305px;
+    }
     .content > div {
         margin: var(--unit-14);
     }
@@ -107,6 +110,7 @@ export const StyledRegister = styled.main`
         flex-direction: column;
         gap: var(--unit-16);
     }
+
 
     form > button {
         
