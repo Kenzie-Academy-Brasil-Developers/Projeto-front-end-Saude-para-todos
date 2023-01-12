@@ -21,7 +21,7 @@ export const StyledUlListUnities = styled.ul`
   gap: 2rem;
   padding: var(--unit-16);
   @media (min-width: 768px) {
-    width: 90%;
+    width: 100%;
     justify-content: flex-start;
   }
 `;
